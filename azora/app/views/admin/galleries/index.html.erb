@@ -34,7 +34,7 @@
           <th><%= @no+x+1 %></th>
           <td><%= image_tag gallery.try(:image).try(:url, :thumb), :height => "50px" %></td>
           <td><%= gallery.title %></td>
-          <td><%= gallery.description %></td>
+          <td><%= raw gallery.description %></td>
           <td>
             <% unless gallery.country.nil? %>
               <%= link_to gallery.try(:country).try(:name),
