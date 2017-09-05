@@ -14,8 +14,8 @@
   color: #e3e3e3!important;
 }
 
-.admin > section > .container a{
-  color: #00bcdf;
+.admin > section > .container li.active > a{
+  color: #fff;
 }
 
 .admin a:hover, .admin > section > .container a:hover{

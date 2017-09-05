@@ -2391,6 +2391,14 @@ figure.effect-chico:hover p {
   padding-left: 25px;
 }
 
+.visa-requirement a, .passport-requirement a{
+  color: #2b85c3;
+}
+
+.visa-requirement a:hover, .passport-requirement a:hover{
+  text-decoration: underline;
+}
+
 .visa-requirement .visa-header{
   text-align: center;
   font-size: 20px;
