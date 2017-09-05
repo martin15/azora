@@ -1,0 +1,54 @@
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <%#*<div class="breadcrum-masking">%>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Continents</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Admin", admin_path %></li>
+          <li class="active">Continents</li>
+        </ol>
+      </div>
+    <%#*</div>%>
+  </div>
+</div>
+
+<div class="admin container">
+  <%= render :partial => "shared/flash" %>
+  <p class="nav-link">
+    <%= link_to "Add new continent", new_admin_continent_path %>
+  </p>
+  <table class="table table-hover continent">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Banner</th>
+        <th class="green-link"><%= sortable("name", "Name") %></th>
+        <th>Countries</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @continents.each_with_index do |continent, x| %>
+        <tr>
+          <th><%= @no+x+1 %></th>
+          <td><%= image_tag continent.banner.url(:thumb), :class => "img img responsive" %></td>
+          <td><%= continent.name %></td>
+          <td>
+            <% continent.countries.each do |country| %>
+              <%= link_to country.name, edit_admin_country_path(country.permalink),
+                          :class => "red-link" %><br />
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Detail", admin_continent_path(continent.permalink), :class => "btn btn-primary" %>
+            <%= link_to "Edit", edit_admin_continent_path(continent.permalink), :class => "btn btn-success" %>
+            <%= link_to "Delete", admin_continent_path(continent.permalink ), :method => :delete,
+                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-warning" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="col-xs-12 no_padding_lr pagination"><%= paginate @continents %></div>
+</div>

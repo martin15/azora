@@ -1,0 +1,166 @@
+<div class="page-header small-banner plane">
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Tours</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Tours</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <div class="col-xs-12 tours">
+    <div class="col-xs-12 no-padding-lr continents">
+      <% width = @continents.size %>
+      <% @no = 1 %>
+      <% @continents.each do |continent_list| %>
+        <div class="grid">
+          <% continent_list.each_with_index do |continent, x| %>
+            <% if continent_list.size == 4 %>
+              <figure class=" effect-chico" style="width: 16.6%">
+                <%= image_tag continent.banner.url(:medium), :alt => continent.banner.url %>
+                <figcaption>
+                  <h2><%= continent.name %></h2>
+                  <a href="#">View more</a>
+                </figcaption>
+              </figure>
+            <% else %>
+              <%# if x == 0 %>
+                <%#*<figure class=" effect-chico" style="width: 25%">%>
+                  <%#*<figcaption>%>
+                    <%#*&nbsp;%>
+                  <%#*</figcaption>%>
+                <%#*</figure>%>
+              <%# end %>
+              <figure class=" effect-chico" style="width: 16.6%">
+                <%= image_tag continent.banner.url(:medium), :alt => continent.banner.url %>
+                <figcaption>
+                  <h2><%= continent.name %></h2>
+                  <a href="#">View more</a>
+                </figcaption>
+              </figure>
+              <%# if x == 1 %>
+                <%#*<figure class=" effect-chico" style="width: 25%">%>
+                  <%#*<figcaption>%>
+                    <%#*&nbsp;%>
+                  <%#*</figcaption>%>
+                <%#*</figure>%>
+              <%# end %>
+            <% end %>
+            <% @no = @no == 5 ? 1 : @no+1 %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 no-padding-lr special-offer">
+      <div class="col-xs-12 no-padding-lr header">
+        <h2>Penawaran Special</h2>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 tour-list">
+          <div class="tour">
+            <div class="tour-image">
+              <%= image_tag "item_img_1.jpg", :class => "img img-responsive" %>
+              <div class="tour-layer"></div>
+            </div>
+            <div class="clear-all"></div>
+            <div class="col-xs-12 no-padding-lr tour-detail">
+              <div class="col-xs-12 no-padding-lr title">
+                <b>8D</b> Favorite New Zealand Kiwi + The Hobbiton
+              </div>
+              <div class="col-xs-8 no-padding-lr description">
+                <div class="price-note">
+                  Start From
+                </div>
+                <div class="price">
+                   Rp 30.588.<small>000</small>
+                </div>
+              </div>
+              <div class="col-xs-4 no-padding-lr more-info">
+                <%= link_to "More Info", tour_path(Tour.first.permalink), :class => "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 tour-list">
+          <div class="tour">
+            <div class="tour-image">
+              <%= image_tag "item_img_2.jpg", :class => "img img-responsive" %>
+              <div class="tour-layer"></div>
+            </div>
+            <div class="clear-all"></div>
+            <div class="col-xs-12 no-padding-lr tour-detail">
+              <div class="col-xs-12 no-padding-lr title">
+                <b>8D</b> Favorite New Zealand Kiwi + The Hobbiton
+              </div>
+              <div class="col-xs-8 no-padding-lr description">
+                <div class="price-note">
+                  Start From
+                </div>
+                <div class="price">
+                   Rp 30.588.<small>000</small>
+                </div>
+              </div>
+              <div class="col-xs-4 no-padding-lr more-info">
+                <%= link_to "More Info", tour_path(Tour.first.permalink), :class => "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 tour-list">
+          <div class="tour">
+            <div class="tour-image">
+              <%= image_tag "item_img_3.jpg", :class => "img img-responsive" %>
+              <div class="tour-layer"></div>
+            </div>
+            <div class="clear-all"></div>
+            <div class="col-xs-12 no-padding-lr tour-detail">
+              <div class="col-xs-12 no-padding-lr title">
+                <b>8D</b> Favorite New Zealand Kiwi + The Hobbiton
+              </div>
+              <div class="col-xs-8 no-padding-lr description">
+                <div class="price-note">
+                  Start From
+                </div>
+                <div class="price">
+                   Rp 30.588.<small>000</small>
+                </div>
+              </div>
+              <div class="col-xs-4 no-padding-lr more-info">
+                <%= link_to "More Info", tour_path(Tour.first.permalink), :class => "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 tour-list">
+          <div class="tour">
+            <div class="tour-image">
+              <%= image_tag "item_img_4.jpg", :class => "img img-responsive" %>
+              <div class="tour-layer"></div>
+            </div>
+            <div class="clear-all"></div>
+            <div class="col-xs-12 no-padding-lr tour-detail">
+              <div class="col-xs-12 no-padding-lr title">
+                <b>8D</b> Favorite New Zealand Kiwi + The Hobbiton
+              </div>
+              <div class="col-xs-8 no-padding-lr description">
+                <div class="price-note">
+                  Start From
+                </div>
+                <div class="price">
+                   Rp 30.588.<small>000</small>
+                </div>
+              </div>
+              <div class="col-xs-4 no-padding-lr more-info">
+                <%= link_to "More Info", tour_path(Tour.first.permalink), :class => "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

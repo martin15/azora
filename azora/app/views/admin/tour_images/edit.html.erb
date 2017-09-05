@@ -1,0 +1,72 @@
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <div class="col-xs-12 col-sm-4 name no-padding-lr">Edit Tour Images</div>
+    <div class="col-xs-12 col-sm-8 breadcrumb">
+      <ol class="breadcrumb">
+        <li><%= link_to "Admin", admin_path %></li>
+        <li><%= link_to "Tours", admin_tours_path %></li>
+        <li><%= link_to "Tour Images", admin_tour_images_path(@tour.id) %></li>
+        <li class="active">Edit Tour Images</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="container admin-tour-image">
+  <%= render :partial => "shared/flash" %>
+  <% if @tour_image.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" group="alert">
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </button>
+      <h4><%= pluralize(@tour_image.errors.count, "error") %> prohibited this group from being saved:</h4>
+      <ul>
+      <% @tour_image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for(@tour_image,
+               :url => admin_tour_image_path(:id => @tour.permalink, :tour_image_id => @tour_image.id),
+               :html => { :multipart => true,  :class => "form-horizontal"}) do |f| %>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= image_tag @tour_image.image.url(:medium), :class => "img-responsive" %>
+      </div>
+      <div class="col-sm-9">
+        <label class="col-sm-2 control-label">Tour Name</label>
+        <div class="col-sm-10 p-t-10">
+          <%= @tour.name %>&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= link_to "Edit Tour Information", edit_admin_tour_path(@tour.permalink) %>
+        </div>
+        <%= f.label :image, "New Image *", :class => "col-sm-2 control-label" %>
+        <div class="col-sm-10">
+          <%= f.file_field :image, :class => "p-t-10" %>
+        </div>
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10">
+          <span class="small-font">Please upload image with size 1280 x 768 (width x height)</span>
+        </div>
+        <div class="col-sm-2">&nbsp;</div>
+        <div class="col-sm-10 m-t-10">
+          <%= f.submit :class => "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <h3>List Tour Image</h3>
+  <% @tour_images.each do |img| %>
+    <div class="col-sm-3">
+      <div class="tour-image-box">
+        <%= image_tag img.image.url(:medium), :class => "img-responsive" %>
+        <%= link_to "Edit", edit_admin_tour_image_path(:id => @tour.id, :tour_image_id => img.id),
+                            :class => "left" %>
+        <%= link_to "Delete", admin_tour_image_path(:id => @tour.id, :tour_image_id => img.id),
+                            :class => "right", :method => :delete, :data => {:confirm => "Are you sure?"} %>
+      </div>
+    </div>
+  <% end %>
+</div>

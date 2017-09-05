@@ -1,0 +1,29 @@
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <%#*<div class="breadcrum-masking">%>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Edit Setting</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Admin", admin_path %></li>
+          <li><%= link_to "Setting", admin_system_settings_path %></li>
+          <li class="active">Edit Setting</li>
+        </ol>
+      </div>
+    <%#*</div>%>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <%= form_for(@system_setting, :url => admin_system_setting_path(@system_setting.permalink),
+               :html => {:multipart => true, :class => "form-horizontal"}, :method => :put) do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f} %>
+    <div class="form-group">
+      <div class="col-sm-2">&nbsp;</div>
+      <div class="col-sm-10">
+        <%= f.submit :class => "btn btn-success" %>
+        <%= link_to 'Back', admin_system_settings_path, :class => "btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>

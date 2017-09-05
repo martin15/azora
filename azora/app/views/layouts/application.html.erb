@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <% if @meta_description.present? %>
+    <meta name="description" content="<%= @meta_description %>">
+  <% end %>
+  <meta name="author" content="">
+  <title><%= @meta_title ? @meta_title : ApplicationController::BRAND_NAME %></title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application', 'owl.carousel.min.js', 'bootstrap', 'html5shiv' %>
+  <%= yield :javascript_includes %>
+  <%= yield :css_includes %>
+  <!--[if lt IE 9]>
+    <script src="/assets/html5shiv.js"></script>
+    <script src="/assets/respond.min.js"></script>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    var amountScrolled = 300;
+    $(window).scroll(function() {
+      if ( $(window).scrollTop() > amountScrolled ) {
+        $('a.back-to-top').fadeIn(200);
+      } else {
+        $('a.back-to-top').fadeOut(200);
+      }
+    });
+  </script>
+</head>
+<body id="home">
+  <nav class="navbar navbar-default navbar-fixed <%= manage_menu %>">
+    <%# unless current_user.nil? %>
+      <%#*<div class="col-sm-12 user-info-bar">%>
+        <%#*<div class="col-md-6 hidden-xs">&nbsp;</div>%>
+        <%#*<div class="col-md-6 hidden-xs" id="login-pan">%>
+          <%#= raw welcome_text %>
+        <%#*</div>%>
+      <%#*</div>%>
+    <%# end %>
+    <div class="container">
+      <div class='hidden-xs col-sm-4 col-md-4 col-lg-4 bounce_in_left no-padding-l'>
+        <%= link_to image_tag("logo.jpg", :alt => "Logo" , :class => "img-responsive",
+                               :style => "height:80px!important"),
+                    root_path %>
+      </div>
+      <div class="hidden-xs col-sm-8 col-md-8 col-lg-8 no-padding-r">
+        <ul role="menu" class="nav navbar-nav main-menu navbar-fadeIn">
+          <li class="nav-item single"><%= link_to "Home", root_path %></li>
+          <li class="nav-item single"><%= link_to "Tour", tours_path %></li>
+          <li class="nav-item single"><%= link_to "Package", "#" %></li>
+          <li class="nav-item dropdown">
+            <%= link_to "Travel Doc", "javascript:void(0)" %>
+            <ul role="menu" class="dropdown-menu">
+              <li class="nav-item">
+                <%= link_to "Persyaratan Visa", visa_path %>
+              </li>
+              <li class="nav-item"><%= link_to "Persyaratan Passport", passport_path %></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <%= link_to "Gallery", "javascript:void(0)" %>
+            <ul role="menu" class="dropdown-menu">
+              <% @continent_list.each do |continent| %>
+                <li class="nav-item">
+                  <%= link_to continent.name.titleize, galleries_path(continent.permalink) %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="nav-item single"><%= link_to "News", news_path %></li>
+          <li class="nav-item dropdown">
+            <%= link_to "About Us", "javascript:void(0)" %>
+            <ul role="menu" class="dropdown-menu">
+              <li class="nav-item">
+                <%= link_to "Company Profile", company_profile_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Contact Us", contact_us_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Career", career_path %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section id="section" class="<%= manage_banner %>">
+    <%= yield :banner %>
+    <%= yield %>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i>
+</a>
+  </section>
+
+  <footer id="footer-menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 footer-logo">
+          <%= link_to (image_tag 'logo.jpg', :alt => "Tritunggal Swarna", :class => "img-responsive"),
+                      root_path, :class => "footer-brand col-xs-12 " %>
+          <span class="col-xs-12">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore magna aliqua. Ut aliquip ex ea commodo consequat.
+          </span>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <ul class="ct-menu-footer list-unstyled col-xs-">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Products", "#" %></li>
+            <li><%= link_to "Certificates", "#" %></li>
+            <li><%= link_to "News", "#" %></li>
+            <li><%= link_to "About Us", "#" %></li>
+            <li><%= link_to "Contact Us", "#" %></li>
+          </ul>
+          <ul class="ct-menu-footer list-unstyled col-xs-">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Products", "#" %></li>
+            <li><%= link_to "Certificates", "#" %></li>
+            <li><%= link_to "News", "#" %></li>
+            <li><%= link_to "About Us", "#" %></li>
+            <li><%= link_to "Contact Us", "#" %></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-address">
+          <b>PT. AZORA INTERNASIONAL</b><br />
+          Ruko The Seventh Walk A3/09 - Citra Garden 7<br />
+          Jl. Peta Barat Kalideres – Jakarta Barat, Indonesia 11830
+          <i class="fa fa-phone no-padding-lr" aria-hidden="true"></i>+6221 2932-3505<br />
+          <i class="fa fa-fax no-padding-lr" aria-hidden="true"></i>+6221 2932-3504<br />
+          <i class="fa fa-envelope no-padding-lr" aria-hidden="true"></i>sales@azoratravel.com <br />
+        </div>
+      </div>
+    </div>
+  </footer>
+  <footer id="footer-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          &copy; 2000 - <%= Date.today.year %> by PT. AZORA INTERNASIONAL. All Rights Reserved. 
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--/#footer-->
+
+  <!-- Mobile Menu //-->
+  <div class="ct-menu-mobile">
+    <nav class="navbar navbar-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4 col-sm-4 hidden-xs">
+            <ul class="list-unstyled list-inline ct-socials--rounded">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-9 col-sm-4" style="padding: 15px">
+            <div class="navbar-header">
+              <%= link_to (image_tag 'logo.jpg', :alt => "Tritunggal Swarna",
+                                      :class => "img-responsive"),
+                          root_path, :class => "navbar-brand" %>
+            </div>
+          </div>
+          <div class="col-xs-3 col-sm-4" style="padding: 15px">
+            <ul role="menu" class="nav navbar-nav"  style="margin-top: 0">
+              <li class="nav-item-toggle"><a><i class="fa fa-bars"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="navbar-beacon">
+    <ul class="list-unstyled">
+      <li class="nav-item"><%= link_to "Home", root_path %></li>
+          <!--<%#*<li class="nav-item dropdown">%>
+            <%#= link_to raw("Products<i class='fa fa-angle-double-down'></i>"), "javascript:void(0)" %>
+            <%#*<ul role="menu" class="dropdown-menu">%>
+              <%# @categories.each do |cat| %>
+                <%# unless cat.child_categories.blank? %>
+                  <%#*<li class="nav-item dropdown">%>
+                    <%#= link_to raw("#{cat.name}<i class='fa fa-angle-double-down'></i>"),
+                                "javascript:void(0)" %>
+                    <%#*<ul role="menu" class="dropdown-menu">%>
+                      <%# cat.child_categories.each do |child_cat| %>
+                        <%# unless child_cat.child_categories.blank? %>
+                          <%#*<li class="nav-item dropdown">%>
+                            <%#= link_to raw("#{child_cat.name}<i class='fa fa-angle-double-down'></i>"),
+                                        "javascript:void(0)" %>
+                            <%#*<ul role="menu" class="dropdown-menu">%>
+                              <%# child_cat.child_categories.each do |gs_child| %>
+                              <%#*<li class="nav-item">%>
+                                <%#= link_to gs_child.name, products_path(gs_child.permalink) %>
+                              <%#*</li>%>
+                              <%# end %>
+                            <%#*</ul>%>
+                          <%#*</li>%>
+                        <%# else %>
+                          <%#*<li class="nav-item">%>
+                            <%#= link_to child_cat.name, products_path(child_cat.permalink) %>
+                          <%#*</li>%>
+                        <%# end %>
+                      <%# end %>
+                    <%#*</ul>%>
+                  <%#*</li>%>
+
+
+                  <%#*<li class="nav-item">%>
+                    <%#= link_to cat.name, products_path(cat.try(:first_child).try(:permalink)) %>
+                  <%#*</li>%>
+                <%# else %>
+                  <%#*<li class="nav-item"><%= link_to cat.name, products_path(cat.permalink) %></li>%>
+                <%# end %>
+              <%# end %>
+            <%#*</ul>%>
+          <%#*</li>%>-->
+          <li class="nav-item"><%= link_to "Certificates", "#" %></li>
+          <li class="nav-item"><%= link_to "News", "#" %></li>
+          <li class="nav-item"><%= link_to "About Us", "#" %></li>
+          <li class="nav-item"><%= link_to "Contact Us", "#" %></li>
+<!--
+      <%#*<li class="nav-item dropdown">%>
+        <%#= link_to raw("Home<i class='fa fa-angle-double-down'></i>"), root_path %>
+        <%#*<ul role="menu" class="dropdown-menu">%>
+          <%#*<li class="nav-item"><%= link_to "Smartwatch" %></li>%>
+          <%#*<li class="nav-item active"><%= link_to "Drone" %></li>%>
+          <%#*<li class="nav-item"><%= link_to "Beacon" %></li>%>
+          <%#*<li class="nav-item"><%= link_to "Vr mask" %></li>%>
+        <%#*</ul>%>
+      <%#*</li>%>
+      <%#*<li class="nav-item"><%= link_to "Products", products_path %></li>%>
+      <%#*<li class="nav-item"><%= link_to "Certificates", products_path %></li>%>
+      <%#*<li class="nav-item"><%= link_to "About Us", products_path %></li>%>
+      <%#*<li class="nav-item"><%= link_to "Contact Us", products_path %></li>%>-->
+    </ul>
+  </div>
+
+</body>
+</html>

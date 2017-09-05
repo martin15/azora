@@ -1,0 +1,55 @@
+<div class="page-header  small-banner visa">
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Persyaratan Visa</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Persyaratan Visa</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <div class="col-sm-3 col-md-3">
+    <div class="panel-group" id="countries-accordion">
+      <% @continents.each_with_index do |continent, x| %>
+        <% continent == @continent ? (head = '';body = 'in') : (head = 'collapsed';body = '') %>
+        <div class="panel panel-default continent-country">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <%= link_to (raw "#{continent.name}"),
+                          "#collapse-#{continent.permalink}", :class => "accordion-toggle #{head}",
+                          :data => {:toggle => "collapse", :parent => "#accordion"} %>
+            </h4>
+          </div>
+          <div id="collapse-<%= continent.permalink %>" class="panel-collapse collapse <%= body %>">
+            <div class="panel-body">
+              <% continent.countries.each do |country| %>
+                <div class="col-xs-3 country-small">
+                  <%= link_to (image_tag country.banner.url(:thumb), :class => "img img-responsive"),
+                               visa_detail_path(country.permalink) %>
+                  <%= link_to (country.name.downcase == "united kingdom" ? "UK" : country.name),
+                               visa_detail_path(country.permalink), :class => "p-t-5" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 visa-requirement">
+    <div class="col-xs-12 visa-header">
+      <%= image_tag @country.banner.url, :class => "img img-responsive" %>
+      <span><%= @country.name %></span>
+    </div>
+    <div class="col-xs-12">
+      <%= raw(@country.visa_requirement) %>
+    </div>
+  </div>
+</div>

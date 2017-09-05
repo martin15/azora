@@ -1,0 +1,56 @@
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <%#*<div class="breadcrum-masking">%>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr"><%= @country.name.titleize %> Galleries</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Admin", admin_path %></li>
+          <li class="active">Galleries</li>
+        </ol>
+      </div>
+    <%#*</div>%>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <p class="nav-link">
+    <%= link_to "Add new gallery", new_admin_country_gallery_path(@country.permalink) %>
+    &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Country list", admin_countries_path %>
+  </p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Country</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @galleries.each_with_index do |gallery, x| %>
+        <tr>
+          <th><%= @no+x+1 %></th>
+          <td><%= image_tag gallery.try(:image).try(:url, :thumb), :height => "50px" %></td>
+          <td><%= gallery.title %></td>
+          <td><%= gallery.description %></td>
+          <td><%= gallery.try(:country).try(:name) %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_country_gallery_path(:id => @country.permalink,
+                                                                :gallery_id => gallery.id),
+                                :class => "btn btn-success" %>
+            <%= link_to "Delete", admin_country_gallery_path(:id => @country.permalink,
+                                                             :gallery_id => gallery.id),
+                                  :method => :delete,
+                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-warning" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="col-xs-12 no_padding_lr pagination"><%= paginate @galleries %></div>
+</div>

@@ -1,0 +1,54 @@
+<div class="page-header small-banner visa">
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Visa</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Visa</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <div class="col-xs-12 col-sm-3 travel-document">
+    <% Country::VISA_MENU.each do |key, val| %>
+      <% active = 'active' if params[:permalink].to_s == key.to_s %>
+      <div class="col-xs-12 no-padding-lr visa-menu <%= active %>">
+        <%= link_to val, visa_detail_path(key) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 no-padding-lr list-voa-free-visa">
+    <% @continents.each do |continent| %>
+      <% @countries = continent.send("#{@header}_list_by_country") %>
+      <% if @countries.size > 0 %>
+        <div class="title">
+          <i class="fa fa-map-o" aria-hidden="true"></i>
+          <%= continent.name %>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Negara</th>
+              <th>Lama Tinggal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @countries.each do |country| %>
+            <tr>
+              <td><%= country.name %></td>
+              <td><%= country.send("#{@header}_duration") %> Hari</td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

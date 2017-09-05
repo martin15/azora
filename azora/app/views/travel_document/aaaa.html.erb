@@ -1,0 +1,61 @@
+<div class="page-header plane-banner">
+  <%#= image_tag "plane_2.jpg", :class => "img img-responsive" %>
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Persyaratan Visa</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Persyaratan Visa</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <div class="col-xs-12 col-sm-3 contact-us">
+    <% Country::VISA_MENU.each do |key, val| %>
+      <div class="col-xs-12 no-padding-lr visa-menu">
+        <%= link_to val, visa_detail_path(key) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 no-padding-lr">
+    <div class="tab" role="tabpanel">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <% @continents.each do |continent| %>
+          <li role="presentation"  class="active">
+            <%= link_to continent.name, "##{continent.permalink}", :aria => {:controls => continent.permalink},
+                        :role => "tab", :data => {:toggle => "tab"} %>
+          </li>
+        <% end %>
+      </ul>
+        <!-- Tab panes -->
+        <div class="tab-content tabs">
+          <% @continents.each do |continent| %>
+            <div role="tabpanel" class="tab-pane fade in active" id="<%= continent.permalink %>">
+              <h3><%= continent.name %></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.  </p>
+            </div>
+          <% end %>
+
+            <div role="tabpanel" class="tab-pane fade" id="Section2">
+                <h3>Section-2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque.  </p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section3">
+                <h3>Section-3</h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Section4">
+                <h3>Section-4</h3>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec urna aliquam, ornare eros vel, malesuada lorem. Nullam faucibus lorem at eros consectetur lobortis. Maecenas nec nibh congue, placerat sem id, rutrum velit. Phasellus porta enim at facilisis condimentum. Maecenas pharetra dolor vel elit tempor pellentesque sed sed eros. Aenean vitae mauris tincidunt, imperdiet orci semper, rhoncus ligula. Vivamus scelerisque. </p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

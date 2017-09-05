@@ -1,0 +1,92 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "isotope", "masonry.pkgd.min",
+                             "light-gallery/lightgallery", "light-gallery/lg-autoplay.min",
+                             "light-gallery/lg-fullscreen.min",
+                             "light-gallery/lg-thumbnail.min", "light-gallery/lg-zoom.min" %>
+  <%= stylesheet_link_tag "lightgallery" %>
+<% end %>
+
+<div class="page-header plane-banner">
+  <%#= image_tag "plane_2.jpg", :class => "img img-responsive" %>
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-6 name no-padding-lr"><%= @continent.name.titleize %> Galleries</div>
+      <div class="col-xs-12 col-sm-6 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active"><%= @continent.name.titleize %> Galleries</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  
+</style>
+<div class="container">
+  <div class="col-xs-3">
+    <div class="gallery-continents-list">
+      <ul>
+        <% @continents.each do |continent| %>
+          <% if continent == @continent %>
+            <li class="active"><%= continent.name.titleize %></li>
+          <% else %>
+            <li><%= link_to continent.name.titleize, galleries_path(continent.permalink) %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-9 continent-galleries">
+    <div class="button-group filter-button-group">
+      <button data-filter="*" class="btn btn-green is-checked">show all</button>
+      <% @continent.countries.each do |country| %>
+        <button data-filter=".<%= country.name.parameterize %>" class="btn btn-green">
+          <%= country.name %>
+        </button>
+      <% end %>
+    </div>
+
+    <div class="grid grid-mansory" id="lightgallery">
+      <% @continent.galleries.each do |gallery| %>
+        <div class="element-item transition <%= gallery.try(:country).try(:name).try(:parameterize) %>"
+             data-src="<%= gallery.image.url %>"
+             data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>">
+            <%= link_to (image_tag gallery.image.url(:small), :class => "img img-responsive"),
+                        "#"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // init Isotope
+    var $grid = $('.grid').isotope({
+      // options
+    });
+    // filter items on button click
+    $('.filter-button-group').on( 'click', 'button', function() {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+    $('.button-group').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', 'button', function() {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        $( this ).addClass('is-checked');
+      });
+    });
+
+    $('.grid-mansory').masonry({
+      itemSelector: '.element-item',
+      percentPosition: true
+    });
+
+    $('#lightgallery').lightGallery({
+      thumbnail: true
+    });
+  })
+</script>

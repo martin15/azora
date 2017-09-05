@@ -1,0 +1,63 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+<% end %>
+
+<% if @tour.errors.any? %>
+  <div class="alert alert-danger alert-dismissable" group="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <h4><%= pluralize(@tour.errors.count, "error") %> prohibited this group from being saved:</h4>
+    <ul>
+    <% @tour.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :country_id, "Country *", :class => "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.select :country_id, @countries, {},:class => "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :name, "Name *", :class => "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :name, :class => "form-control" %>
+  </div>
+</div>
+<%= f.fields_for :tour_attachments do |p| %>
+  <div class="form-group">
+    <%= f.label :image, "Images *", :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <% if action_name == 'edit' || action_name == 'update' %>
+        Click
+        <%= link_to "here", admin_tour_images_path(@tour.permalink), :class => "green-link" %>
+        to manages Tour Images
+      <% else %>
+        <%= p.file_field :image, :multiple => true, :name => "tour_images[image][]" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<div class="form-group">
+  <%= f.label :short_description, "Short Desc *", :class => "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+        <%= f.cktext_area :short_description, :class => "form-control",
+                      :ckeditor => {:uiColor => "#f0e5d2", :toolbar => "Basic"}%>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :description, "Description *", :class => "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+        <%= f.cktext_area :description, :class => "form-control",
+                      :ckeditor => {:uiColor => "#f0e5d2", :toolbar => "Basic"}%>
+  </div>
+</div>
+
+<script>
+  $('select').select2();
+</script>

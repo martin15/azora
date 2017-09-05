@@ -1,0 +1,75 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+<% end %>
+
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <%#*<div class="breadcrum-masking">%>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Tour Itineraries</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Admin", admin_path %></li>
+          <li><%= link_to "Tours", admin_tours_path %></li>
+          <li class="active">Tour Itineraries</li>
+        </ol>
+      </div>
+    <%#*</div>%>
+  </div>
+</div>
+
+<div class="container admin-tour-itinerary">
+  <%= render :partial => "shared/flash" %>
+  <%= form_for(@tour_itinerary, :url => admin_tour_itineraries_path(@tour.permalink),
+               :html => { :multipart => true,  :class => "form-horizontal"}) do |f| %>
+    <div class="form-group">
+      <label class="col-xs-2 control-label">Tour Name</label>
+      <div class="col-sm-10 p-t-10">
+        <%= @tour.name %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "Edit Tour Information", edit_admin_tour_path(@tour.permalink) %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :day, "Day *", :class => "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :day, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :title, "Title *", :class => "col-sm-2 control-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :title, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, "Description *", :class => "col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= f.cktext_area :description, :class => "form-control",
+                    :ckeditor => {:uiColor => "#f0e5d2", :toolbar => "Basic"}%>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-2">&nbsp;</div>
+      <div class="col-sm-10">
+        <%= f.submit :class => "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+  <h3>List Tour Itinerary</h3>
+  <% @tour_itineraries.each do |itin| %>
+    <div class="col-sm-12 m-b-30">
+      <div class="col-sm-2">Hari <%= itin.day %></div>
+      <div class="col-sm-8">
+        <div class="itinerary-title"><%= raw itin.title %></div>
+        <%= raw itin.description %>
+      </div>
+      <div class="col-sm-2">
+        <%= link_to "Edit", edit_admin_tour_itinerary_path(:id => @tour.permalink,
+                                                           :tour_itinerary_id => itin.id),
+                            :class => "left" %>
+        <%= link_to "Delete", admin_tour_itinerary_path(:id => @tour.permalink,
+                                                        :tour_itinerary_id => itin.id),
+                            :class => "right", :method => :delete, :data => {:confirm => "Are you sure?"} %>
+      </div>
+    </div>
+  <% end %>
+</div>

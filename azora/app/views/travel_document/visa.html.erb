@@ -1,0 +1,46 @@
+<div class="page-header  small-banner visa">
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Visa</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Visa</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= render :partial => "shared/flash" %>
+  <div class="col-xs-12 col-sm-12 no-padding-lr">
+    <div class="tab" role="tabpanel">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <% @continents.each_with_index do |continent, x| %>
+          <% active = "active" if x== 0 %>
+          <li role="presentation"  class="<%= active %>">
+            <%= link_to continent.name, "##{continent.permalink}", :aria => {:controls => continent.permalink},
+                        :role => "tab", :data => {:toggle => "tab"} %>
+          </li>
+        <% end %>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content tabs col-xs-12">
+        <% @continents.each_with_index do |continent, x| %>
+          <% active = "in active" if x== 0 %>
+          <div role="tabpanel" class="tab-pane fade <%= active %>" id="<%= continent.permalink %>">
+            <% continent.countries.each do |country| %>
+              <div class="col-md-2 country-list">
+                <%= link_to (image_tag country.banner.url(:thumb)), visa_detail_path(country.permalink) %>
+                <%= link_to raw("<div class='name'>#{country.name}</div>"),
+                            visa_detail_path(country.permalink) %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
