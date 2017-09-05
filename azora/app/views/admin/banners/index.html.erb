@@ -1,11 +1,11 @@
 <div class="page-header" style="background-color:#3e3e3e">
   <div class="container">
     <%#*<div class="breadcrum-masking">%>
-      <div class="col-xs-12 col-sm-4 name no-padding-lr">Settings</div>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Banners</div>
       <div class="col-xs-12 col-sm-8 breadcrumb">
         <ol class="breadcrumb">
           <li><%= link_to "Admin", admin_path %></li>
-          <li class="active">Settings</li>
+          <li class="active">Banners</li>
         </ol>
       </div>
     <%#*</div>%>
@@ -15,25 +15,26 @@
 <div class="container">
   <%= render :partial => "shared/flash" %>
   <p class="nav-link">
-    <%= link_to "Manage Banner", admin_banners_path %>
+    <%= link_to "New Banner", new_admin_banner_path %>
   </p>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>#</th>
-        <th class="green-link"><%= sortable("name", "Name") %></th>
-        <th>Value</th>
+        <th>Image</th>
+        <th>Sequence</th>
         <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
-      <% @system_settings.each_with_index do |system_setting, x| %>
+      <% @banners.each_with_index do |banner, x| %>
         <tr>
           <th><%= @no+x+1 %></th>
-          <td><%= system_setting.name %></td>
+          <td><%= image_tag banner.image.url(:thumb), :class => "img img-responsive" %></td>
+          <td><%= banner.sequence %></td>
           <td>
-            <%= link_to "Edit", edit_admin_system_setting_path(system_setting.permalink), :class => "btn btn-success" %>
-            <%= link_to "Delete", admin_system_setting_path(system_setting.permalink ), :method => :delete,
+            <%= link_to "Edit", edit_admin_banner_path(banner.id), :class => "btn btn-success" %>
+            <%= link_to "Delete", admin_banner_path(banner.id ), :method => :delete,
                                   :data => {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
           </td>
         </tr>
@@ -41,5 +42,5 @@
     </tbody>
   </table>
 
-  <div class="col-xs-12 no_padding_lr pagination"><%= paginate @system_settings %></div>
+  <div class="col-xs-12 no_padding_lr pagination"><%= paginate @banners %></div>
 </div>

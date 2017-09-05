@@ -105,9 +105,9 @@
   <div class="home-banner">
     <div class="col-xs-12 banner">
       <div class="owl-carousel"  id="main-slider">
-        <% (0..2).each do |x| %>
+        <% @banners.each do |banner| %>
           <div class="item">
-            <%= link_to (image_tag "/assets/main_slide_1.jpg", :class=> "img-responsive"), "#" %>
+            <%= link_to (image_tag banner.image.url, :class=> "img-responsive"), "#" %>
               <%#*<div class="slider-inner">%>
                 <%#*<div class="container">%>
                   <%#*<div class="row">%>
@@ -280,20 +280,20 @@
   <div class="col-xs-12 no-padding-lr home-travel-post">
     <h3>Latest Travel News</h3>
     <div class="col-xs-12 no-padding-lr">
-      <% (1..4).each do |x| %>
+      <% @latest_news.each do |news| %>
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 travel-post-list">
           <div class="travel-post">
             <div class="travel-post-image">
-              <%= image_tag "travel-post-#{x}.jpg", :class => "img img-responsive" %>
+              <%= image_tag news.banner.url(:medium), :class => "img img-responsive" %>
             </div>
             <div class="clear-all"></div>
             <div class="travel-post-detail">
               <div class="title">
-                Liburan Seru di Ocean Park dan Disneyland Hong Kong
+                <%= news.title %>
               </div>
               <div class="short-content">
-                Hong Kong menjadi salah satu negara yang memiliki sejumlah taman bermain,
-                salah satu yang popule... - <%= link_to "Selengkapnya", "#" %>
+                <%= news.short_content %> -
+                <%= link_to "Selengkapnya", news_detail_path(news.permalink) %>
               </div>
             </div>
           </div>

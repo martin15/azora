@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class NewsBannerUploader < CarrierWave::Uploader::Base
+class BannerImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
@@ -32,15 +32,11 @@ class NewsBannerUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :large do
-    process :resize_to_fit => [800, 800]
-  end
-
   version :medium do
-    process :resize_to_fit => [600, 600]
+    process :resize_to_fit => [400, 400]
   end
 
-  version :small do
+  version :thumb do
     process :resize_to_fit => [200, 200]
   end
 

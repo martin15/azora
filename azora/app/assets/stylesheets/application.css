@@ -169,7 +169,7 @@ section.normal{
 }
 
 section.with-user-bar{
-  padding-top: 145px;
+  padding-top: 125px;
 }
 
 section > .container{
@@ -1598,7 +1598,7 @@ footer#footer-info{
 .user-info-bar{
   background-color:#1fb7a6;
   z-index: 1;
-  margin-bottom: 20px;
+/*  margin-bottom: 20px;*/
 }
 
 #specification table{

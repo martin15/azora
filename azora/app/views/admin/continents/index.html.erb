@@ -24,6 +24,7 @@
         <th>Banner</th>
         <th class="green-link"><%= sortable("name", "Name") %></th>
         <th>Countries</th>
+        <th>Sequence</th>
         <th>&nbsp;</th>
       </tr>
     </thead>
@@ -39,6 +40,7 @@
                           :class => "red-link" %><br />
             <% end %>
           </td>
+          <td><%= continent.sequence %></td>
           <td>
             <%= link_to "Detail", admin_continent_path(continent.permalink), :class => "btn btn-primary" %>
             <%= link_to "Edit", edit_admin_continent_path(continent.permalink), :class => "btn btn-success" %>

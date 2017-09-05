@@ -21,14 +21,14 @@
 </head>
 <body id="home" class="admin">
   <nav class="navbar navbar-default navbar-fixed <%= manage_menu %>">
-    <%# unless current_user.nil? %>
-      <%#*<div class="col-sm-12 user-info-bar">%>
-        <%#*<div class="col-md-6 hidden-xs">&nbsp;</div>%>
-        <%#*<div class="col-md-6 hidden-xs" id="login-pan">%>
-          <%#= raw welcome_text %>
-        <%#*</div>%>
-      <%#*</div>%>
-    <%# end %>
+    <% unless current_user.nil? %>
+      <div class="col-sm-12 user-info-bar">
+        <div class="col-md-6 hidden-xs">&nbsp;</div>
+        <div class="col-md-6 hidden-xs" id="login-pan">
+          <%= raw welcome_text %>
+        </div>
+      </div>
+    <% end %>
     <div class="container">
       <div class='hidden-xs col-sm-4 col-md-4 col-lg-4 bounce_in_left no-padding-l'>
         <%= link_to image_tag("logo.jpg", :alt => "Logo" , :class => "img-responsive",
@@ -37,48 +37,13 @@
       </div>
       <div class="hidden-xs col-sm-8 col-md-8 col-lg-8 no-padding-r">
         <ul role="menu" class="nav navbar-nav main-menu">
-          <li class="nav-item"><%= link_to "Home", root_path %></li>
-
-          <!--
-          <li class="nav-item dropdown">
-            <%#= link_to "Products", "javascript:void(0)" %>
-            <%#*<ul role="menu" class="dropdown-menu">%>
-              <%# @categories.each do |cat| %>
-                <%# unless cat.child_categories.blank? %>
-                  <%#*<li class="nav-item dropdown-submenu"><%= link_to cat.name, "javascript:void(0)" %>%>
-                    <%#*<ul role="menu" class="dropdown-menu">%>
-                      <%# cat.child_categories.each do |child_cat| %>
-                        <%# unless child_cat.child_categories.blank? %>
-                          <%#*<li class="nav-item dropdown-submenu">%>
-                            <%#= link_to child_cat.name, "javascript:void(0)" %>
-                            <%#*<ul role="menu" class="dropdown-menu">%>
-                              <%# child_cat.child_categories.each do |gs_child| %>
-                              <%#*<li class="nav-item">%>
-                                <%#= link_to gs_child.name, products_path(gs_child.permalink) %>
-                              <%#*</li>%>
-                              <%# end %>
-                            <%#*</ul>%>
-                          <%#*</li>%>
-                        <%# else %>
-                          <%#*<li class="nav-item">%>
-                            <%#= link_to child_cat.name, products_path(child_cat.permalink) %>
-                          <%#*</li>%>
-                        <%# end %>
-                      <%# end %>
-                    <%#*</ul>%>
-                  <%#*</li>%>
-                <%# else %>
-                  <%#*<li class="nav-item"><%= link_to cat.name, products_path(cat.permalink) %></li>%>
-                <%# end %>
-              <%# end %>
-            <%#*</ul>%>
-          </li>-->
-          <li class="nav-item"><%= link_to "Tour", tour_path(1) %></li>
-          <li class="nav-item"><%= link_to "Package", "#" %></li>
-          <li class="nav-item"><%= link_to "Countries", admin_countries_path %></li>
-          <li class="nav-item"><%= link_to "Gallery", admin_galleries_path %></li>
-          <li class="nav-item"><%= link_to "News", admin_news_index_path %></li>
-          <li class="nav-item"><%= link_to "Settings", admin_system_settings_path %></li>
+          <li class="nav-item single"><%= link_to "Home", root_path %></li>
+          <li class="nav-item single"><%= link_to "Tour", admin_tours_path %></li>
+          <li class="nav-item single"><%= link_to "Package", "#" %></li>
+          <li class="nav-item single"><%= link_to "Countries", admin_countries_path %></li>
+          <li class="nav-item single"><%= link_to "Gallery", admin_galleries_path %></li>
+          <li class="nav-item single"><%= link_to "News", admin_news_index_path %></li>
+          <li class="nav-item single"><%= link_to "Settings", admin_system_settings_path %></li>
         </ul>
       </div>
     </div>
@@ -134,7 +99,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          &copy; 2016 PT Tritunggal Swarna
+          &copy; 2000 - <%= Date.today.year %> by PT. AZORA INTERNASIONAL. All Rights Reserved.
         </div>
       </div>
     </div>

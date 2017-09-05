@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+user = User.find_or_create_by(:email => "martin.me15@yahoo.com", :name => "Martin",
+                              :password_digest => BCrypt::Password.create('1q2w3e4r5t').to_s)
 
 africa = Continent.find_or_create_by(:name => "Africa")
 puts africa.inspect

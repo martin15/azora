@@ -11,11 +11,17 @@ Rails.application.routes.draw do
   get "visa" => "travel_document#visa", :as => "visa"
   get "visa/:permalink" => "travel_document#visa_detail", :as => "visa_detail"
 
+  get    '/login' => 'session#new', :as => "login"
+  post   '/login' => 'session#create', :as => "login_create"
+  delete '/logout' => 'session#destroy', :as => "logout"
+
+
   resources :contact_us, :only => [:index, :create]
   resources "tours"
 
   get "admin" => "admin/dashboard#index", :as => "admin"
   namespace :admin do
+    resources "banners"
     resources "continents"
     resources "countries" do
       member do

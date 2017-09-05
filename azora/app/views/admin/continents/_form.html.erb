@@ -28,14 +28,12 @@
   <%= f.label :sequence, "Sequence *", :class => "col-sm-2 control-label" %>
   <div class="col-sm-10">
     <%= f.text_field :sequence, :class => "form-control" %>
-    <%= hidden_field_tag "id", params[:id] %>
   </div>
 </div>
 <div class="form-group m-b-0">
   <%= f.label :banner, "Banner", :class => "col-sm-2 control-label" %>
   <div class="col-sm-10">
     <%= f.file_field :banner, :class => "form-control" %>
-    <%= hidden_field_tag "id", params[:id] %>
   </div>
 </div>
 <div class="form-group">
