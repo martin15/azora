@@ -32,9 +32,8 @@
           <th><%= @no+x+1 %></th>
           <td><%= system_setting.name %></td>
           <td>
-            <%= link_to "Edit", edit_admin_system_setting_path(system_setting.permalink), :class => "btn btn-success" %>
-            <%= link_to "Delete", admin_system_setting_path(system_setting.permalink ), :method => :delete,
-                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+            <%= link_to "Edit", edit_admin_system_setting_path(system_setting.permalink),
+                        :class => "btn btn-success" %>
           </td>
         </tr>
       <% end %>

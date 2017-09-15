@@ -1,25 +1,9 @@
 class Admin::SystemSettingsController < Admin::ApplicationController
-  before_filter :find_system_setting, :only => [:show, :edit, :update, :destroy, :delete]
+  before_filter :find_system_setting, :only => [:edit, :update]
 
   def index
     @system_settings = SystemSetting.all.page(params[:page]).per(10)
     @no = paging(10)
-  end
-
-  def new
-    @system_setting = SystemSetting.new
-  end
-
-  def create
-    @system_setting = SystemSetting.new(system_setting_params)
-    if @system_setting.save
-      flash[:notice] = 'SystemSetting was successfully create.'
-      redirect_to admin_system_settings_path
-    else
-
-      flash[:error] = "SystemSetting failed to create"
-      render :action => :new
-    end
   end
 
   def edit
@@ -33,12 +17,6 @@ class Admin::SystemSettingsController < Admin::ApplicationController
       flash[:error] = "SystemSetting failed to update"
       render :action => :edit
     end
-  end
-
-  def destroy
-    flash[:notice] =  @system_setting.destroy ? 'SystemSetting was successfully deleted.' :
-                                                'SystemSetting was falied to delete.'
-    redirect_to admin_system_settings_path
   end
 
   private
