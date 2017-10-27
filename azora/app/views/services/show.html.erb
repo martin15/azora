@@ -1,11 +1,15 @@
 <div class="page-header  small-banner <%= service_banner %>">
   <div class="breadcrum-masking">
     <div class="container">
-      <div class="col-xs-12 col-sm-4 name no-padding-lr">Visa</div>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">
+        <%= @service.permalink == 'mice' ? "M.I.C.E" : @service.permalink.humanize.titleize %>
+      </div>
       <div class="col-xs-12 col-sm-8 breadcrumb">
         <ol class="breadcrumb">
           <li><%= link_to "Home", root_path %></li>
-          <li class="active">Visa</li>
+          <li class="active">
+            <%= @service.permalink == 'mice' ? "M.I.C.E" : @service.permalink.humanize.titleize %>
+          </li>
         </ol>
       </div>
     </div>

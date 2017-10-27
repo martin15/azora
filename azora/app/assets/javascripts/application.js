@@ -168,14 +168,20 @@ $(document).ready(function() {
     url = window.location;
     $('.navbar-default .navbar-nav').find('a').filter(function() {
       //return this.href === url.href;
-      if(this.text.toLowerCase() == 'home'){
-        temp_text = ' '
-        if(url.pathname == '/'){
-          temp_text = '/'
-        }
+      if(this.text.toLowerCase() == 'incentive tour' || this.text.toLowerCase() == 'm.i.c.e' ||
+         this.text.toLowerCase() == 'other services' || url.pathname.includes("visa")){
+        temp_text = "service"
       }else{
-        temp_text = this.text.toLowerCase().replace(" ", "_");
+          if(this.text.toLowerCase() == 'home'){
+            temp_text = ' '
+            if(url.pathname == '/'){
+              temp_text = '/'
+            }
+          }else{
+            temp_text = this.text.toLowerCase().replace(" ", "_");
+          }
       }
+    // alert(temp_text+"-"+url.pathname+"="+this.text.toLowerCase()+"000"+url.pathname.includes("visa"))
       return url.pathname.includes(temp_text);
     }).closest('li').addClass('active').closest("ul").parent().addClass('active');
 
