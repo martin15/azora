@@ -32,7 +32,13 @@
       <% @galleries.each_with_index do |gallery, x| %>
         <tr>
           <th><%= @no+x+1 %></th>
-          <td><%= image_tag gallery.try(:image).try(:url, :thumb), :height => "50px" %></td>
+          <td>
+            <% if gallery.file_type.downcase == "image" %>
+              <%= image_tag gallery.try(:image).try(:url, :small) %>
+            <% else %>
+              <%= video_tag gallery.image.url, :size => "255x155", :controls => true %>
+            <% end %>
+          </td>
           <td><%= gallery.title %></td>
           <td><%= raw gallery.description %></td>
           <td>

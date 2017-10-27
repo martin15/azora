@@ -24,7 +24,7 @@
             <span class="col-xs-3 news-info-date">
               <i class="fa fa-calendar"></i><%= news.updated_at.strftime('%d-%b-%Y') %>
             </span>
-            <% unless news.user.nil? %>
+            <% unless news.user.blank? %>
               <span class="col-xs-3 news-info-author">
                 <i class="fa fa-user"></i>By <%= news.user %>
               </span>

@@ -3,8 +3,8 @@ class Admin::GalleriesController < Admin::ApplicationController
   before_filter :find_gallery, :only => [:edit, :update, :destroy, :delete]
 
   def index
-    @galleries = Gallery.all.page(params[:page]).per(10)
-    @no = paging(10)
+    @galleries = Gallery.order("updated_at DESC").page(params[:page]).per(20)
+    @no = paging(20)
   end
 
   def new
