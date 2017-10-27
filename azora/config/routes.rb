@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   get "company_profile" => "about_us#company_profile", :as => "company_profile"
   get "career" => "about_us#career", :as => "career"
   get "galleries/:permalink"  => "galleries#index", :as => "galleries"
   get "news" => "news#index", :as => "news"
   get "news/:permalink" => "news#show", :as => "news_detail"
-  get "passport" => "travel_document#passport", :as => "passport"
+#  get "passport" => "travel_document#passport", :as => "passport"
   get "privacy_policy" => "about_us#privacy_policy", :as => "privacy_policy"
+  get "service/:permalink" => "services#show", :as => "services"
   get "term_conditions" => "about_us#term_conditions", :as => "term_conditions"
   get "visa" => "travel_document#visa", :as => "visa"
   get "visa/:permalink" => "travel_document#visa_detail", :as => "visa_detail"
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
 
   resources :contact_us, :only => [:index, :create]
-  resources "tours"
+#  resources "tours"
 
   get "admin" => "admin/dashboard#index", :as => "admin"
   namespace :admin do
@@ -30,13 +32,14 @@ Rails.application.routes.draw do
     end
     resources "galleries"
     resources "news"
+    resources "services", :only => [:index, :edit, :update]
     resources "system_settings", :only => [:index, :edit, :update]
-    resources "tours"do
-      member do
-        resources :tour_images, :param => :tour_image_id
-        resources :tour_itineraries, :param => :tour_itinerary_id
-      end
-    end
+#    resources "tours"do
+#      member do
+#        resources :tour_images, :param => :tour_image_id
+#        resources :tour_itineraries, :param => :tour_itinerary_id
+#      end
+#    end
   end
 
   root 'home#index'

@@ -88,6 +88,8 @@ puts privacy_policy.inspect
 term_and_condition = SystemSetting.find_or_create_by(:name => "Term & Condition")
 puts term_and_condition.inspect
 
-
+incentive_tour = Service.find_or_create_by(:name => "Incentive Tour")
+mice = Service.find_or_create_by(:name => "M.I.C.E")
+other_service = Service.find_or_create_by(:name => "Other Service")
 
 

@@ -2,8 +2,13 @@ class GalleriesController < ApplicationController
   before_filter :find_continent
 
   def index
-    @continents = Continent.all.order("name")
-    @galleries = @continent.galleries
+    @continents = Continent.all.order("name").each_slice(6).to_a
+    @galleries_paginate = @continent.galleries.order("updated_at DESC").page(params[:page]).per(4)
+    @galleries = @galleries_paginate.each_slice(4).to_a
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

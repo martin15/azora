@@ -15,4 +15,5 @@ Rails.application.config.assets.precompile += %w(
   disrupt.js owl.carousel.min.js select2.full.js isotope.js bootstrap.js html5shiv.js
   masonry.pkgd.min.js light-gallery/*
   *.svg *.eot *.woff *.ttf *.woff2 *.otf
+  ckeditor/filebrowser/images/gal_del.png infinite-scroll
 )

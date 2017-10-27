@@ -2,8 +2,7 @@
   <%= javascript_include_tag "isotope", "masonry.pkgd.min",
                              "light-gallery/lightgallery", "light-gallery/lg-autoplay.min",
                              "light-gallery/lg-fullscreen.min",
-                             "light-gallery/lg-thumbnail.min", "light-gallery/lg-zoom.min",
-                             "infinite-scroll" %>
+                             "light-gallery/lg-thumbnail.min", "light-gallery/lg-zoom.min" %>
   <%= stylesheet_link_tag "lightgallery" %>
 <% end %>
 
@@ -25,47 +24,39 @@
   
 </style>
 <div class="container">
-  <!--<div class="col-xs-3">
+  <div class="col-xs-3">
     <div class="gallery-continents-list">
       <ul>
-        <%# @continents.each do |continent| %>
-          <%# if continent == @continent %>
-            <%#*<li class="active"><%= continent.name.titleize %></li>%>
-          <%# else %>
-            <%#*<li><%= link_to continent.name.titleize, galleries_path(continent.permalink) %></li>%>
-          <%# end %>
-        <%# end %>
+        <% @continents.each do |continent| %>
+          <% if continent == @continent %>
+            <li class="active"><%= continent.name.titleize %></li>
+          <% else %>
+            <li><%= link_to continent.name.titleize, galleries_path(continent.permalink) %></li>
+          <% end %>
+        <% end %>
       </ul>
     </div>
-  </div>-->
-  <div class="col-xs-12 continent-galleries">
-    <% width = @continents.size %>
-    <% @no = 1 %>
-    <% @continents.each do |continent_list| %>
-      <div class="grid">
-        <% continent_list.each_with_index do |continent, x| %>
-          <figure class=" effect-chico" style="width: 16.6%">
-            <%= image_tag continent.banner.url(:medium), :alt => continent.banner.url %>
-            <figcaption>
-              <h2><%= continent.name %></h2>
-              <%= link_to "javascript:void(0)", galleries_path(continent.permalink) %>
-            </figcaption>
-          </figure>
-          <% @no = @no == 5 ? 1 : @no+1 %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <div class="col-lg-12" id="lightgallery">
-      <%= render :partial => "gallery", :object => @galleries %>
+  </div>
+  <div class="col-xs-9 continent-galleries">
+    <div class="button-group filter-button-group">
+      <button data-filter="*" class="btn btn-green is-checked">show all</button>
+      <% @continent.countries.each do |country| %>
+        <button data-filter=".<%= country.name.parameterize %>" class="btn btn-green">
+          <%= country.name %>
+        </button>
+      <% end %>
     </div>
 
-    <p id="view-more" style="<%= 'display:none' if @galleries_paginate.total_pages == 1 %>">
-      <%= image_tag "spinner.gif", :class => "img img-responsive",
-                    :style => "height:50px;width:50px;margin: 20px auto 0" %>
-      <%= link_to('View More', url_for(page: @galleries_paginate.current_page + 1), :remote => true,
-                  :style => "display:none;") %>
-    </p>
+    <div class="grid grid-mansory" id="lightgallery">
+      <% @continent.galleries.each do |gallery| %>
+        <div class="element-item transition <%= gallery.try(:country).try(:name).try(:parameterize) %>"
+             data-src="<%= gallery.image.url %>"
+             data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>">
+            <%= link_to (image_tag gallery.image.url(:small), :class => "img img-responsive"),
+                        "#"  %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -95,8 +86,7 @@
     });
 
     $('#lightgallery').lightGallery({
-      thumbnail: true,
-      selector: 'div.continent-list-gallery'
+      thumbnail: true
     });
   })
 </script>

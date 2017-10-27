@@ -36,15 +36,15 @@
 </div>
 
 <div class="form-group m-b-0">
-  <%= f.label :image, "Image *", :class => "col-sm-2 control-label" %>
+  <%= f.label :image, "Image/Video *", :class => "col-sm-2 control-label" %>
   <div class="col-sm-10">
-    <%= f.file_field :image, :class => "form-control" %>
+    <%= f.file_field :image, :class => "form-control",:accept => "video/*, image/*" %>
   </div>
 </div>
 <div class="form-group">
   <div class="col-sm-2"></div>
   <div class="col-sm-10">
-    <span class="small-font">Please upload image with size 1280 x 768 (width x height)</span>
+    <span class="small-font">Please upload image with size 1280 x 768 (width x height) or video with maximum size 50 mb</span>
   </div>
 </div>
 <div class="form-group">

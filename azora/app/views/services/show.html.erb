@@ -1,0 +1,34 @@
+<div class="page-header  small-banner <%= service_banner %>">
+  <div class="breadcrum-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Visa</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Visa</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-xs-3">
+    <div class="service-continents-list">
+      <ul>
+        <li class="<%= 'active' if @service.permalink == 'incentive-tour' %>">
+          <%= link_to "Incentive Tour", services_path("incentive-tour") %>
+        </li>
+        <li class="<%= 'active' if @service.permalink == 'mice' %>">
+          <%= link_to "M.I.C.E", services_path("mice") %>
+        </li>
+        <li class="<%= 'active' if @service.permalink == 'other-service' %>">
+          <%= link_to "Other Services", services_path("other-service") %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-9 continent-galleries">
+    <%= raw @service.value %>
+  </div>
+</div>

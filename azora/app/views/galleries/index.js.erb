@@ -1,0 +1,7 @@
+$('#lightgallery').append('<%= j render :partial => "gallery", :object => @galleries %>');
+
+<% if @galleries_paginate.current_page == @galleries_paginate.total_pages %>
+  $("#view-more").remove();
+<% else %>
+  $("#view-more a").attr('href', '<%= url_for(page: @galleries_paginate.current_page + 1) %>');
+<% end %>

@@ -107,6 +107,17 @@ b, strong {
   color: #e3e3e3;
 }
 
+.medium-text{
+  font-size: 18px;
+}
+
+.blue-text{
+  color: #0088cc;
+}
+
+.center-text{
+  text-align: center
+}
 /*ul, ol{
   padding: 0;
 }*/
@@ -1029,12 +1040,25 @@ button, .btn{
   color: #fff;
 }
 
+.home-welcome-aboard{
+  margin-bottom: 80px;
+}
+
 .home-products, .home-travel-post{
   margin-bottom: 60px;
 }
 
-.home-products h4, .home-travel-post h4{
+.home-welcome-aboard h3, .home-travel-post h3{
   margin-bottom: 40px;
+  text-decoration: underline;
+}
+
+.home-welcome-aboard a{
+  text-decoration: underline;
+}
+
+.home-welcome-aboard a:hover{
+  color: #000000;
 }
 
 .home-product-image, .home-product-name,
@@ -1148,13 +1172,13 @@ footer#footer-info{
 }
 
 .ct-menu-footer li{
-  padding: 5px 20px;
+  padding: 1px 20px;
 }
 
 .ct-menu-footer li a {
   color: #fff;
   font-size: 13px;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
   text-decoration: none;
 }
 
@@ -2412,25 +2436,26 @@ figure.effect-chico:hover p {
 /*------------------------------ visa end -------------------------------------*/
 
 /*------------------------------ gallery --------------------------------------*/
-.gallery-continents-list{
+.gallery-continents-list, .service-continents-list{
   background-color: #f8f8f8;
 }
 
-.gallery-continents-list ul{
+.gallery-continents-list ul, .service-continents-list ul{
   font-family: "Montserrat-Normal",sans-serif;
   list-style: none;
   padding: 20px 0;
 }
 
-.gallery-continents-list li{
+.gallery-continents-list li, .service-continents-list li{
   border-bottom: 1px solid #e3e3e3;
 }
 
-.gallery-continents-list li:first-child{
+.gallery-continents-list li:first-child, .service-continents-list li:first-child{
   border-top: 1px solid #e3e3e3;
 }
 
-.gallery-continents-list li:hover, .gallery-continents-list li.active{
+.gallery-continents-list li:hover, .gallery-continents-list li.active,
+.service-continents-list li:hover, .service-continents-list li.active{
   color: #2b85c3;
   background-color: #fff;
 }
@@ -2439,7 +2464,7 @@ figure.effect-chico:hover p {
   padding: 15px 20px;
 }
 
-.gallery-continents-list a{
+.gallery-continents-list a, .service-continents-list a{
   display: block;
   padding: 15px 20px;
 }
@@ -2454,6 +2479,14 @@ figure.effect-chico:hover p {
   background-color: #fff;
   color: #51bf9f;
   border-color: #51bf9f;
+}
+
+.continent-list-gallery{
+  padding: 15px 0;
+}
+
+.continent-list-gallery img{
+  margin: 0 auto;
 }
 
 /*---------------------------- gallery end ------------------------------------*/

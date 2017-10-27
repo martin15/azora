@@ -27,4 +27,7 @@ class Country < ActiveRecord::Base
     self.order("name").map { |c| [c.name, c.id] }
   end
 
+  def self.default
+    self.find_by_name("United Kingdom") || self.first
+  end
 end

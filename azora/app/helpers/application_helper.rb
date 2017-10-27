@@ -42,4 +42,9 @@ module ApplicationHelper
     current_user.nil? ? "normal" : "with-user-bar"
     #!nil ? "normal" : "with-user-bar"
   end
+
+  def service_banner
+    return "suitcase" if @service.permalink == "other-service"
+    return "mice"
+  end
 end

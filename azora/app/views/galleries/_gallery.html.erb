@@ -1,0 +1,12 @@
+<% @galleries.each do |gallery_arr| %>
+  <div class="row col-lg-12">
+    <% gallery_arr.each do |gallery| %>
+      <div class="col-lg-3 continent-list-gallery"
+           data-src="<%= gallery.image.url %>"
+           data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>">
+          <%= link_to (image_tag gallery.image.url(:small), :class => "img img-responsive"),
+                      "#" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
