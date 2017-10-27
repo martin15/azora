@@ -60,7 +60,7 @@
       <%= render :partial => "gallery", :object => @galleries %>
     </div>
 
-    <%= unless @galleries_paginate.total_pages == 1 %>
+    <% unless @galleries_paginate.total_pages == 1 %>
       <p id="view-more" style="">
         <%= image_tag "spinner.gif", :class => "img img-responsive",
                       :style => "height:50px;width:50px;margin: 20px auto 0" %>
