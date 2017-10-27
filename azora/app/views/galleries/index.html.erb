@@ -60,8 +60,8 @@
       <%= render :partial => "gallery", :object => @galleries %>
     </div>
 
-    <% unless @galleries_paginate.total_pages == 1 %>
-      <p id="view-more" style="">
+    <% unless @galleries_paginate.total_pages.to_i == 0 || @galleries_paginate.total_pages.to_i == 1 %>
+      <p id="view-more">
         <%= image_tag "spinner.gif", :class => "img img-responsive",
                       :style => "height:50px;width:50px;margin: 20px auto 0" %>
         <%= link_to('View More', url_for(page: @galleries_paginate.current_page + 1), :remote => true,
