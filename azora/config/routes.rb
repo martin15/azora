@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  get "company_profile" => "about_us#company_profile", :as => "company_profile"
+  get "about_us" => "about_us#company_profile", :as => "company_profile"
+  post "contact_us" => "about_us#contact_us", :as => "contact_us"
   get "career" => "about_us#career", :as => "career"
-  get "galleries/:permalink"  => "galleries#index", :as => "galleries"
+  get "galleries"  => "galleries#index", :as => "galleries"
+  get "galleries/:permalink"  => "galleries#show", :as => "gallery"
   get "news" => "news#index", :as => "news"
   get "news/:permalink" => "news#show", :as => "news_detail"
 #  get "passport" => "travel_document#passport", :as => "passport"
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'session#destroy', :as => "logout"
 
 
-  resources :contact_us, :only => [:index, :create]
+#  resources :contact_us, :only => [:index, :create]
 #  resources "tours"
 
   get "admin" => "admin/dashboard#index", :as => "admin"

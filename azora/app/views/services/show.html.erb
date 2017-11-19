@@ -1,38 +1,93 @@
-<div class="page-header  small-banner <%= service_banner %>">
-  <div class="breadcrum-masking">
-    <div class="container">
-      <div class="col-xs-12 col-sm-4 name no-padding-lr">
-        <%= @service.permalink == 'mice' ? "M.I.C.E" : @service.permalink.humanize.titleize %>
-      </div>
-      <div class="col-xs-12 col-sm-8 breadcrumb">
-        <ol class="breadcrumb">
-          <li><%= link_to "Home", root_path %></li>
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <div class="col-xs-12 col-sm-6 name no-padding-lr">Galleries</div>
+    <div class="col-xs-12 col-sm-6 breadcrumb">
+      <ol class="breadcrumb">
+        <li><%= link_to "Home", root_path %></li>
           <li class="active">
             <%= @service.permalink == 'mice' ? "M.I.C.E" : @service.permalink.humanize.titleize %>
           </li>
-        </ol>
-      </div>
+      </ol>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="col-xs-3">
-    <div class="service-continents-list">
-      <ul>
-        <li class="<%= 'active' if @service.permalink == 'incentive-tour' %>">
-          <%= link_to "Incentive Tour", services_path("incentive-tour") %>
-        </li>
-        <li class="<%= 'active' if @service.permalink == 'mice' %>">
-          <%= link_to "M.I.C.E", services_path("mice") %>
-        </li>
-        <li class="<%= 'active' if @service.permalink == 'other-service' %>">
-          <%= link_to "Other Services", services_path("other-service") %>
-        </li>
-      </ul>
+  <div class="col-xs-4">
+    <%#*<div class="service-continents-list">%>
+      <!--
+      <%#*<ul>%>
+        <%#*<li class="<%= 'active' if @service.permalink == 'incentive-tour' %>">%>
+          <%#= link_to (image_tag "mice.jpg", :class => "img img-responsive"),
+                      services_path("incentive-tour") %>
+        <%#*</li>%>
+        <%#*<li class="<%= 'active' if @service.permalink == 'mice' %>">%>
+          <%#= link_to (image_tag "mice.jpg", :class => "img img-responsive"),
+                      services_path("mice") %>
+        <%#*</li>%>
+        <%#*<li class="<%= 'active' if @service.permalink == 'other-service' %>">%>
+          <%#= link_to (image_tag "suitcase.jpg", :class => "img img-responsive"),
+                       services_path("other-service") %>
+        <%#*</li>%>
+      <%#*</ul>%> 
+        -->
+
+      <div class="grid">
+        <% [["mice.jpg", "Incentive Tour"],
+            ["mice.jpg", "M.I.C.E"],
+            ["suitcase.jpg", "Other Service"]].each do |service| %>
+          <div class="col-sm-12 no-padding-l m-b-10">
+            <% type = service[1] == "M.I.C.E" ? "mice" : service[1].parameterize %>
+            <% active = "active" if params[:permalink] == type %>
+            <figure class="effect-chico <%= active %>" style="width: 100%">
+              <%= image_tag service[0], :alt => service[0] %>
+              <figcaption>
+                <%= link_to "javascript:void(0)", services_path(type) %>
+                <h2 style="padding-top: 0"><%= service[1] %></h2>
+                <p></p>
+              </figcaption>
+            </figure>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="col-xs-9 continent-galleries">
-    <%= raw @service.value %>
+  <div class="col-xs-8" style="padding-top: 13px;">
+    <% if params[:permalink] == "other-service" %>
+      <div class="col-sm-6 m-b-30">
+        <div class="col-sm-12 no-padding-lr service-box">
+          <%= link_to (image_tag "visa.jpg", :class => "img img-responsive"),
+                      visa_detail_path(Country.default.permalink) %>
+        </div>
+        <div class="col-sm-12 no-padding-lr service-box-name">
+          <%= link_to "Visa", visa_detail_path(Country.default.permalink) %>
+        </div>
+      </div>
+      <div class="col-sm-6 m-b-30">
+        <div class="col-sm-12 no-padding-lr service-box">
+          <%= image_tag "air_ticket.jpg", :class => "img img-responsive" %>
+        </div>
+        <div class="col-sm-12 no-padding-lr service-box-name">Air Ticket</div>
+      </div>
+      <div class="col-sm-6 m-b-30">
+        <div class="col-sm-12 no-padding-lr service-box">
+          <%= image_tag "hotel_ticket.jpg", :class => "img img-responsive" %>
+        </div>
+        <div class="col-sm-12 no-padding-lr service-box-name">Hotels Booking</div>
+      </div>
+      <div class="col-sm-6 m-b-30">
+        <div class="col-sm-12 no-padding-lr service-box">
+          <%= image_tag "cruises.jpg", :class => "img img-responsive" %>
+        </div>
+        <div class="col-sm-12 no-padding-lr service-box-name">Cruises</div>
+      </div>
+      <div class="col-sm-6 m-b-30">
+        <div class="col-sm-12 no-padding-lr service-box">
+          <%= image_tag "car_bus_rental.jpg", :class => "img img-responsive" %>
+        </div>
+        <div class="col-sm-12 no-padding-lr service-box-name">Car & Bus Rental</div>
+      </div>
+    <% else %>
+      <%= raw @service.value %>
+    <% end %>
   </div>
 </div>

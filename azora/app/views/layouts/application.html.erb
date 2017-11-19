@@ -48,42 +48,13 @@
       <div class="hidden-xs col-sm-8 col-md-8 col-lg-8 no-padding-r">
         <ul role="menu" class="nav navbar-nav main-menu navbar-fadeIn">
           <li class="nav-item single"><%= link_to "Home", root_path %></li>
-          <li class="nav-item dropdown">
-            <%= link_to "Our Services", "javascript:void(0)" %>
-            <ul role="menu" class="dropdown-menu">
-              <li class="nav-item"><%= link_to "Incentive Tour", services_path("incentive-tour") %></li>
-              <li class="nav-item"><%= link_to "M.I.C.E", services_path("mice") %></li>
-              <li class="nav-item"><%= link_to "Other Services", services_path("other-service") %></li>
-            </ul>
-          </li>
+          <li class="nav-item single"><%= link_to "Our Services", services_path("incentive-tour") %></li>
           <%#*<li class="nav-item single">%>
             <%#= link_to "Persyaratan Visa", visa_detail_path(Country.default.permalink) %>
           <%#*</li>%>
-          <li class="nav-item dropdown">
-            <%= link_to "Gallery", "javascript:void(0)" %>
-            <ul role="menu" class="dropdown-menu">
-              <% @continent_list.each do |continent| %>
-                <li class="nav-item">
-                  <%= link_to continent.name.titleize, galleries_path(continent.permalink) %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
+          <li class="nav-item single"><%= link_to "Galleries", galleries_path %></li>
           <li class="nav-item single"><%= link_to "News", news_path %></li>
-          <li class="nav-item dropdown">
-            <%= link_to "About Us", "javascript:void(0)" %>
-            <ul role="menu" class="dropdown-menu">
-              <li class="nav-item">
-                <%= link_to "Company Profile", company_profile_path %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Contact Us", contact_us_path %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Career", career_path %>
-              </li>
-            </ul>
-          </li>
+          <li class="nav-item single"><%= link_to "About Us", company_profile_path %></li>
         </ul>
       </div>
     </div>

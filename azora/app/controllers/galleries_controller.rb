@@ -1,7 +1,11 @@
 class GalleriesController < ApplicationController
-  before_filter :find_continent
+  before_filter :find_continent, :only => [:show]
 
   def index
+    @continents = Continent.all.order("sequence").each_slice(3).to_a
+  end
+
+  def show
     @continents = Continent.all.order("name").each_slice(6).to_a
     @galleries_paginate = @continent.galleries.order("updated_at DESC").page(params[:page]).per(20)
     @galleries = @galleries_paginate.each_slice(4).to_a

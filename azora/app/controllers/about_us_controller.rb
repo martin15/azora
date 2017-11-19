@@ -2,6 +2,20 @@ class AboutUsController < ApplicationController
 
   def company_profile
     @company_profile = SystemSetting.find_by_permalink('company_profile')
+    @contact = Contact.new
+  end
+
+  def contact_us
+    @contact = Contact.new(contact_params)
+    if @contact.save
+      #ContactUsMailer.notification_admin(@contact, the_domain).deliver_now
+      flash[:notice] = 'Message was successfully sent.'
+      redirect_to :action => 'company_profile', :anchor => 'contact-us'
+    else
+      flash[:error] = "Message failed to send"
+      @anchor = "contact-us"
+      render :action => "company_profile"
+    end
   end
 
   def career
@@ -16,4 +30,10 @@ class AboutUsController < ApplicationController
     @term_condition = SystemSetting.find_by_permalink('term-condition')
   end
 
+  private
+
+    def contact_params
+      params.require(:contact).permit(:name, :email, :phone, :company_name,
+                                      :subject, :content)
+    end
 end

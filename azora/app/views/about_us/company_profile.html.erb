@@ -1,3 +1,9 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "aos" %>
+  <%= stylesheet_link_tag "aos" %>
+<% end %>
+
+
 <div class="page-header small-banner mice">
   <div class="breadcrum-masking">
     <div class="container">
@@ -14,17 +20,176 @@
 
 <div class="container">
   <div class="col-xs-12 about-us">
-    PT. AZORA INTERNASIONAL as a travel specialist company in Jakarta – Indonesia.<br />
-    Having the experience of operating in the travel business since 2000,
-    we can provide one stop solution to all your travelling needs.<br /><br /><br />
-Our vision
-- To be a leader in the travel industry by providing excellence services, relationship and profitability
-- To provide quality services that exceed the expectations of our esteemed customers
-Our mission
-- To build long term relationships with our customers and clients and by providing exceptional customer services through innovation
-Our Core values
-- We believe in giving full satisfactions to all our customers
-- We hope to evolve by creativity and innovation
-- We uphold integrity, honesty, and satisfaction in providing our services
+    <div class="row m-b-40">
+      <div class="col-sm-6 aos-item" data-aos="flip-up">
+        <%= image_tag "about-us.jpg", :class => "img img-responsive" %>
+      </div>
+      <div class="col-sm-6">
+        <div class="header">
+          PT. AZORA INTERNASIONAL as a travel specialist company in Jakarta – Indonesia.
+        </div>
+        <div class="desc">
+          Having the experience of operating in the travel business since 2000,
+          we can provide one stop solution to all your travelling needs.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 aos-item" data-aos="fade-right">
+        <div class="col-xs-12 no-padding-lr vision_mision">
+          <span class="col-xs-12 no-padding-lr"><i class="fa fa-eye" aria-hidden="true"></i></span>
+          <span class="col-xs-12 no-padding-lr title">Our vision</span>
+          <span class="col-xs-12 no-padding-lr value">
+            <ul>
+              <li>To be a leader in the travel industry by providing excellence services,
+                  relationship and profitability</li>
+              <li>To provide quality services that exceed the expectations of our esteemed customers</li>
+            </ul>
+          </span>
+        </div>
+      </div>
+      <div class="col-sm-6 aos-item" data-aos="fade-left">
+        <div class="col-xs-12 no-padding-lr vision_mision">
+          <span class="col-xs-12 no-padding-lr"><i class="fa fa-bullseye" aria-hidden="true"></i></span>
+          <span class="col-xs-12 no-padding-lr title">Our mission</span>
+          <span class="col-xs-12 no-padding-lr value">
+            <ul>
+              <li>To build long term relationships with our customers and clients and by providing exceptional customer services through innovation
+                  Our Core values</li>
+              <li>We believe in giving full satisfactions to all our customers</li>
+              <li>We hope to evolve by creativity and innovation</li>
+              <li>We uphold integrity, honesty, and satisfaction in providing our services</li>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="page-header aos-item" data-aos="fade-down" style="background-color:#2b85c3">
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 name no-padding-lr center-text" style="padding: 40px 0">
+      Contact Us
+    </div>
+  </div>
+</div>
+
+<div class="page-header container-map aos-item" data-aos="zoom-in">
+  <div class="col-xs-12 map" id="map"></div>
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -6.146270, lng: 106.700776},
+        mapTypeControl: false,
+        zoom: 17,
+        scrollwheel: false,
+        styles: [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"color":"#000000"},{"lightness":13}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#144b53"},{"lightness":14},{"weight":1.4}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#08304b"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#0c4152"},{"lightness":5}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#0b434f"},{"lightness":25}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#000000"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#0b3d51"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"}]},{"featureType":"transit","elementType":"all","stylers":[{"color":"#146474"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#021019"}]}]
+      });
+      var marker = new google.maps.Marker({
+        map: map,
+        position: {lat: -6.146270, lng: 106.700776},
+        title: 'PT Azora Internasional'
+      });
+
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnNJ6kkXnA5of0MVsW36r0meDM0schA4A&callback=initMap" async defer></script>
+</div>
+
+<div class="container" id="contact-us">
+  <%= render :partial => "shared/flash" %>
+  <div class="col-xs-12 col-sm-6 contact-us aos-item" data-aos="fade-up-right">
+    <%= form_for @contact, :url => contact_us_path do |f| %>
+      <% if @contact.errors.any? %>
+        <div class="error_explanation">
+          <h2><%= pluralize(@contact.errors.count, "error") %> prevented this record from being saved:</h2>
+          <ul>
+            <% @contact.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="col-xs-12 col-sm-6 form-group">
+        <%= f.label :name, "Name *" %>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 form-group">
+        <%= f.label :email, "Email *" %>
+        <%= f.email_field :email, :class => "form-control" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 form-group">
+        <%= f.label :phone, "Phone Number" %>
+        <%= f.email_field :email, :class => "form-control" %>
+      </div>
+      <div class="col-xs-12 col-sm-6 form-group">
+        <%= f.label :company_name, "Company Name" %>
+        <%= f.email_field :email, :class => "form-control" %>
+      </div>
+      <div class="col-xs-12 form-group">
+        <%= f.label :subject, "Subject *" %>
+        <%= f.text_field :subject, :class => "form-control" %>
+      </div>
+      <div class="col-xs-12 form-group">
+        <%= f.label :content, "Message *" %>
+        <%= f.text_area :content, :class => "form-control", :rows => 10 %>
+      </div>
+      <div class="col-xs-12 form-group">
+        <%= recaptcha_tags %>
+      </div>
+      <div class="col-xs-12 form-group">
+        <%= f.submit "Send Message", :class => "btn btn-info", :style=>"background-color:#51bf9f" %>
+      </div>
+      <div class="col-xs-12 form-group m-t-30">
+        <b>* Marked fields are mandatory</b>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6 no-padding-lr aos-item" data-aos="fade-up-left">
+    <div class="col-xs-12 location">
+      <h3>The <b>Office</b></h3>
+      <span class="col-xs-12 address">
+        <i class="fa fa-map-marker col-xs-3 col-sm-2 no-padding-lr" aria-hidden="true"></i>
+        <div class="col-xs-9 col-sm-10 no-padding-lr">
+          <b>Address:</b> Jl. Citra Garden VII Block A3/09 <br />
+          <span style="padding-left:64px;">
+            Jakarta Barat, Indonesia 11840
+          </span>
+        </div>
+      </span>
+      <span class="col-xs-12 phone">
+        <i class="fa fa-phone col-xs-3 col-sm-2 no-padding-lr" aria-hidden="true"></i>
+        <div class="col-xs-10 col-sm-9 info"><b>Phone:</b> +6221 2932-3505</div>
+      </span>
+      <span class="col-xs-12 fax">
+        <i class="fa fa-fax col-xs-3 col-sm-2 no-padding-lr" aria-hidden="true"></i>
+        <div class="col-xs-10 col-sm-9 info"><b>Fax:</b> +6221 2932-3504</div>
+      </span>
+      <span class="col-xs-12 email">
+        <i class="fa fa-envelope col-xs-3 col-sm-2 no-padding-lr" aria-hidden="true"></i>
+        <div class="col-xs-10 col-sm-9 info"><b>Email:</b> info@azoratravel.com</div>
+      </span>
+    </div>
+    <div class="col-xs-12 office-time">
+      <h3><b>Business</b> Hours</h3>
+      <span class="col-xs-12">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        Monday - Friday 8am to 5pm
+      </span>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  AOS.init({
+    easing: 'ease-in-out-sine'
+  });
+</script>
+
+<% if @anchor %>
+  <script type="text/javascript">
+    window.location.hash = "<%= @anchor %>";
+  </script>
+<% end %>

@@ -169,7 +169,30 @@
   </div>
   <div class="col-xs-12 col-sm-3 additional-info">
     <h3>Informasi Tambahan</h3>
-    <span><%= link_to "Syarat dan Ketentuan", term_conditions_path %></span>
+    <span>
+      <%= link_to "Syarat dan Ketentuan", "javascript:void(0)",
+                  :data => {:toggle => "modal", :target => "#term_conditions"} %>
+    </span>
+    <div class="modal fade" id="term_conditions" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Term and Conditions</h4>
+          </div>
+          <div class="modal-body">
+            <%= raw(@term_condition.value) %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <span><%= link_to "Informasi dokumen" %></span>
   </div>
 </div>

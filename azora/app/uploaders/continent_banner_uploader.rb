@@ -33,7 +33,7 @@ class ContinentBannerUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :medium do
-    process :resize_to_fit => [200, 200]
+    process :resize_to_fit => [400, 400]
   end
 
   version :thumb do

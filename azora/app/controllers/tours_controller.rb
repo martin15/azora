@@ -8,6 +8,7 @@ class ToursController < ApplicationController
   def show
     @images = @tour.tour_images
     @itineraries = @tour.tour_itineraries.order("day")
+    @term_condition = SystemSetting.find_by_permalink('term-condition')
   end
 
   private

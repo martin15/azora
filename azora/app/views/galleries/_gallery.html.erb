@@ -1,12 +1,73 @@
 <% @galleries.each do |gallery_arr| %>
-  <div class="row col-lg-12">
+  <div class="grid row col-lg-12">
     <% gallery_arr.each do |gallery| %>
+      <% if gallery.file_type.downcase == "video" %>
+        <div class="col-lg-3 continent-list-gallery" data-html="#video<%= gallery.id %>"
+             data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>" >
+          <div style="display:none;" id="video<%= gallery.id %>">
+            <video class="lg-video-object lg-html5" controls="controls">
+              <source src="<%= gallery.image.url %>">
+               Your browser does not support HTML5 video.
+            </video>
+          </div>
+
+          <figure class="effect-chico" style="width: 100%">
+            <!-- masih  bug buat bikin video thumbnail solusi : mungkin bikin 1 table baru -->
+            <%= video_tag gallery.image.url, :class => "img img-responsive", :controls => true %>
+            <%#= image_tag gallery.image.url(:medium) %>
+            <figcaption>
+              <p style="text-align: center;">
+                <i class="fa fa-play" aria-hidden="true"style="font-size: 30px;"></i>
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      <% else %>
+        <div class="col-lg-3 continent-list-gallery" data-src="<%= gallery.image.url %>"
+           data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>" >
+          <figure class="effect-chico" style="width: 100%">
+            <%= image_tag gallery.image.url(:medium) %>
+            <figcaption>
+              <p style="text-align: center;">
+                <i class="fa fa-search" aria-hidden="true"style="font-size: 30px;"></i>
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      <% end %>
+    <!--
       <div class="col-lg-3 continent-list-gallery"
-           data-src="<%= gallery.image.url %>"
-           data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>">
-          <%= link_to (image_tag gallery.image.url(:small), :class => "img img-responsive"),
-                      "#" %>
+           <%= "data-html=#video#{gallery.id}" if gallery.file_type.downcase == "video"  %>
+           <%= "data-src=#{gallery.image.url}"  if gallery.file_type.downcase == "image" %>
+           data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>" >
+
+        <% if gallery.file_type.downcase == "video" %>
+          <div style="display:none;" id="video<%= gallery.id %>">
+            <video class="lg-video-object lg-html5" controls="controls">
+              <source src="<%= gallery.image.url %>">
+               Your browser does not support HTML5 video.
+          </video>
+          </div>
+        <% end %>
+
+        <figure class="effect-chico" style="width: 100%">
+          <% if gallery.file_type.downcase == "image" %>
+            <%= image_tag gallery.image.url(:small) %>
+          <% else %>
+            <%= video_tag gallery.image.url, :class => "img img-responsive", :controls => true %>
+          <% end %>
+          <figcaption>
+            <p style="text-align: center;">
+              <i class="fa fa-search" aria-hidden="true"style="font-size: 30px;"></i>
+            </p>
+          </figcaption>
+        </figure>
       </div>
+    -->
     <% end %>
   </div>
 <% end %>
+
+
+
+

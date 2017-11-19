@@ -23,6 +23,12 @@ class TravelDocumentController < ApplicationController
   def visa_detail
     @continents = Continent.sorted
     @country = Country.find_by_permalink(params[:permalink])
+    if @country.nil?
+      puts "000000--000--0-0-0-0-0"
+      flash[:error] = "Cannot Find Country with name '#{params[:permalink].humanize}'"
+      redirect_to visa_detail_path(Country.default.permalink)
+      return
+    end
     @continent = @country.continent
   end
 end

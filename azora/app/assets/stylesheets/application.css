@@ -180,7 +180,7 @@ section.normal{
 }
 
 section.with-user-bar{
-  padding-top: 125px;
+  padding-top: 135px;
 }
 
 section > .container{
@@ -1715,8 +1715,8 @@ ul.tree li img{
   margin-right: 5px;
 }
 
-.about-us, .clients-header, .clients{
-  padding: 0 15%
+.clients-header, .clients{
+  padding: 0 10%
 }
 
 .about-us, .clients{
@@ -1732,6 +1732,47 @@ ul.tree li img{
 
 .about-us p{
   font-family: "Montserrat-Normal",sans-serif;
+}
+
+.about-us .header{
+  font-family: "Montserrat-Normal",sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2b85c3;
+  margin-bottom: 30px;
+}
+
+.about-us .desc{
+  font-family: "Montserrat-Normal",sans-serif;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.about-us .vision_mision{
+  padding: 20px 20px;
+  background-color: #f4f8fa;
+  font-family: "Montserrat-Normal",sans-serif;
+  min-height: 325px;
+}
+
+.about-us .vision_mision i{
+  width: 100%;
+  font-size: 50px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.about-us .vision_mision .title{
+  font-family: "Montserrat-Normal",sans-serif;
+  color: #2b85c3;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.about-us .vision_mision .value ul li{
+  font-family: "Montserrat-Normal",sans-serif;
+  margin-bottom: 5px;
 }
 
 .clients-header h3{
@@ -1961,7 +2002,7 @@ ul.tree li img{
   display: block;
   min-height: 100%;
   max-width: 100%;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .grid figure figcaption {
@@ -2060,14 +2101,21 @@ figure.effect-chico h2 {
   font-size: 17px
 }
 
+figure.effect-chico p i{
+  font-size: 8px;
+}
+
 figure.effect-chico p {
   margin: 0 auto;
-  max-width: 200px;
+  max-width: 240px;
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
+  text-align: left;
+  font-size: 11px;
 }
 
 figure.effect-chico:hover figcaption::before,
+figure.effect-chico.active figcaption::before,
 figure.effect-chico:hover p {
   opacity: 1;
   -webkit-transform: scale(1);
@@ -2482,11 +2530,52 @@ figure.effect-chico:hover p {
 }
 
 .continent-list-gallery{
-  padding: 15px 0;
+  padding: 15px;
 }
 
 .continent-list-gallery img{
   margin: 0 auto;
+}
+
+.continent-box, .service-box{
+  border-top: solid 1px #e3e3e3;
+  border-left: solid 1px #e3e3e3;
+  border-right: solid 1px #e3e3e3;
+}
+
+.continent-name{
+  color: #0088cc;
+  font-size: 16px;
+}
+
+.service-box-name{
+  color: #000;
+  font-size: 14px;
+  border-bottom: solid 1px #e3e3e3;
+  text-align: center;
+}
+
+.service-box-name a{
+  color: #0088cc;
+}
+
+.service-box-name a:hover{
+  text-decoration: underline;
+}
+
+.continent-name, .service-box-name{
+  padding: 10px 15px 5px;
+  border-left: solid 1px #e3e3e3;
+  border-right: solid 1px #e3e3e3;
+}
+
+.continent-last-updated{
+  color: #3e3e3e;
+  font-size: 11px;
+  padding: 0px 15px 10px;
+  border-bottom: solid 1px #e3e3e3;
+  border-left: solid 1px #e3e3e3;
+  border-right: solid 1px #e3e3e3;
 }
 
 /*---------------------------- gallery end ------------------------------------*/
@@ -2504,6 +2593,7 @@ figure.effect-chico:hover p {
 @media (min-width: 992px) and (max-width: 1199px) {
   .map{
     height: 500px;
+    width: 100%;
   }
 }
 
