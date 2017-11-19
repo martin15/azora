@@ -51,9 +51,11 @@
 <div class="form-group">
   <div class="col-sm-2"></div>
   <div class="col-sm-10">
-    <span class="small-font">Please upload image with size 1280 x 768 (width x height)</span>
+    <span class="small-font">Please upload image with size 100 x 100 (width x height)</span>
   </div>
 </div>
+
+<!--
 <div class="form-group">
   <div class="col-sm-2">&nbsp;</div>
   <div class="col-sm-10">
@@ -82,7 +84,9 @@
     <%= f.text_field :voa_duration, :class => "form-control" %>
   </div>
 </div>
-<div class="form-group" id="visa_requirement" style="display:none">
+-->
+
+<div class="form-group" id="visa_requirement">
   <%= f.label :visa_requirement, "Visa Requirement *", :class => "col-sm-2 control-label" %>
   <div class="col-sm-10">
     <%= f.cktext_area :visa_requirement, :class => "form-control",
@@ -90,47 +94,47 @@
   </div>
 </div>
 
-<script>
-  $(window).load(function() {
-    if($("#free_visa").is(':checked') || $("#visa_on_arrival").is(':checked')){
-      $("#visa_requirement").fadeOut('fast')
-      if($("#free_visa").is(':checked')){
-        $("#duration").fadeIn('fast')
-      }else{
-        $("#duration").fadeOut('fast')
-      }
-      if($("#visa_on_arrival").is(':checked')){
-        $("#voa_duration").fadeIn('fast')
-      }else{
-        $("#voa_duration").fadeOut('fast')
-      }
-    }else{
-      $("#duration").fadeOut('fast')
-      $("#voa_duration").fadeOut('fast')
-      $("#visa_requirement").fadeIn('fast')
-    }
-  });
+<%#*<script>%>
+  <%#*$(window).load(function() {%>
+    <%#*if($("#free_visa").is(':checked') || $("#visa_on_arrival").is(':checked')){%>
+      <%#*$("#visa_requirement").fadeOut('fast')%>
+      <%#*if($("#free_visa").is(':checked')){%>
+        <%#*$("#duration").fadeIn('fast')%>
+      <%#*}else{%>
+        <%#*$("#duration").fadeOut('fast')%>
+      <%#*}%>
+      <%#*if($("#visa_on_arrival").is(':checked')){%>
+        <%#*$("#voa_duration").fadeIn('fast')%>
+      <%#*}else{%>
+        <%#*$("#voa_duration").fadeOut('fast')%>
+      <%#*}%>
+    <%#*}else{%>
+      <%#*$("#duration").fadeOut('fast')%>
+      <%#*$("#voa_duration").fadeOut('fast')%>
+      <%#*$("#visa_requirement").fadeIn('fast')%>
+    <%#*}%>
+  <%#*});%>
 
-  $(document).ready(function() {
-    $("#free_visa, #visa_on_arrival").click(function(){
+  <%#*$(document).ready(function() {%>
+    <%#*$("#free_visa, #visa_on_arrival").click(function(){%>
 
-      if($("#free_visa").is(':checked') || $("#visa_on_arrival").is(':checked')){
-        $("#visa_requirement").fadeOut('fast')
-        if($("#free_visa").is(':checked')){
-          $("#duration").fadeIn('fast')
-        }else{
-        $("#duration").fadeOut('fast')
-      }
-        if($("#visa_on_arrival").is(':checked')){
-          $("#voa_duration").fadeIn('fast')
-        }else{
-        $("#voa_duration").fadeOut('fast')
-      }
-      }else{
-        $("#duration").fadeOut('fast')
-        $("#voa_duration").fadeOut('fast')
-        $("#visa_requirement").fadeIn('fast')
-      }
+      <%#*if($("#free_visa").is(':checked') || $("#visa_on_arrival").is(':checked')){%>
+        <%#*$("#visa_requirement").fadeOut('fast')%>
+        <%#*if($("#free_visa").is(':checked')){%>
+          <%#*$("#duration").fadeIn('fast')%>
+        <%#*}else{%>
+        <%#*$("#duration").fadeOut('fast')%>
+      <%#*}%>
+        <%#*if($("#visa_on_arrival").is(':checked')){%>
+          <%#*$("#voa_duration").fadeIn('fast')%>
+        <%#*}else{%>
+        <%#*$("#voa_duration").fadeOut('fast')%>
+      <%#*}%>
+      <%#*}else{%>
+        <%#*$("#duration").fadeOut('fast')%>
+        <%#*$("#voa_duration").fadeOut('fast')%>
+        <%#*$("#visa_requirement").fadeIn('fast')%>
+      <%#*}%>
 
 
       <%#*if($("#free_visa").is(':checked')){%>
@@ -147,6 +151,6 @@
         <%#*$("#voa_duration").fadeOut('fast')%>
         <%#*$("#visa_requirement").fadeIn('fast')%>
       <%#*}%>
-    })
-  })
-</script>
+    <%#*})%>
+  <%#*})%>
+<%#*</script>%>
