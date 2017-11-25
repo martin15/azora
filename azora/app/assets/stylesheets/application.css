@@ -166,9 +166,31 @@ Last change:	23.02.2016
 /*  src: local('Montserrat-Bold'),font-url('Montserrat.woff2') format('woff2');*/
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
-@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext");
+/*@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville&subset=latin,latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700");
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Lato");*/
+
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+/*  font-weight: 700;*/
+  src: local('Karla'), url(/assets/Karla.woff2) format('woff2');
+/*  src: local('Montserrat-Bold'),font-url('Montserrat.woff2') format('woff2');*/
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+  font-family: 'Karla-Bold';
+  font-style: normal;
+/*  font-weight: 700;*/
+  src: local('Karla-Bold'), url(/assets/Karla-Bold.woff2) format('woff2');
+/*  src: local('Montserrat-Bold'),font-url('Montserrat.woff2') format('woff2');*/
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+body, html{
+  font-family: "Karla", sans-serif;
+}
 
 section#section{
   padding-bottom: 40px;
@@ -301,7 +323,7 @@ section > .page-header div.breadcrumb li.active{
 .navbar-default {
 /*  margin-top: 10px;*/
 /*  padding-bottom: 10px;*/
-  font-family: "Montserrat", sans-serif;
+  font-family: "Karla-Bold", Comic Sans MS;
   border-radius: 0;
   background-clip: padding-box;
   background-color: #fff;
@@ -373,7 +395,7 @@ nav.with-user-bar{
   padding: 30px 10px;
   border-radius: 50px;
   background-clip: padding-box;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1825,14 +1847,14 @@ ul.tree li img{
 }
 
 .news{
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "Karla",sans-serif;
   border-bottom: 5px solid #fff;
   padding: 35px 0;
   background-color: #eee;
 }
 
 .news .news-short-detail .title, .news .news-detail .title{
-  font-size: 26px;
+  font-size: 30px;
   color: #00bcdf;
   padding: 0 0 10px 0;
   text-align: center;
@@ -1840,7 +1862,7 @@ ul.tree li img{
 }
 
 .news .news-short-detail .news-info, .news .news-detail .news-info{
-  font-size: 11px;
+  font-size: 12px;
   text-align: center;
   margin-bottom: 15px;
   color: #777;
@@ -1865,7 +1887,7 @@ ul.tree li img{
 }
 
 .news .news-short-detail .short-content, .news .news-detail .short-content{
-  font-size: 14px;
+  font-size: 16px;
   color: #777;
   padding: 0 0 20px 0;
   line-height: 22px;
@@ -1880,12 +1902,12 @@ ul.tree li img{
 }
 
 .news .news-short-detail .more a.read-more, .news .news-detail .more a.read-more {
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "Karla",sans-serif;
   background-color: #00bcdf;
   border-color: #00bcff;
   color: #fff;
-  font-size: 12px;
-  padding: 10px 15px 5px;
+  font-size: 13px;
+  padding: 10px 15px;
   margin: 0 auto;
 }
 
@@ -2074,7 +2096,7 @@ figure.effect-chico:hover img {
 }
 
 figure.effect-chico figcaption {
-  padding: 48px 30px;
+  padding: 43px 30px;
 }
 
 figure.effect-chico figcaption::before {
@@ -2111,7 +2133,7 @@ figure.effect-chico p {
   -webkit-transform: scale(1.5);
   transform: scale(1.5);
   text-align: left;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 figure.effect-chico:hover figcaption::before,
@@ -2545,7 +2567,8 @@ figure.effect-chico:hover p {
 
 .continent-name{
   color: #0088cc;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .service-box-name{
@@ -2571,7 +2594,7 @@ figure.effect-chico:hover p {
 
 .continent-last-updated{
   color: #3e3e3e;
-  font-size: 11px;
+  font-size: 12px;
   padding: 0px 15px 10px;
   border-bottom: solid 1px #e3e3e3;
   border-left: solid 1px #e3e3e3;
