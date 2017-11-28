@@ -1,8 +1,8 @@
 <% @galleries.each do |gallery_arr| %>
-  <div class="grid row col-lg-12">
+  <div class="grid row col-xs-12">
     <% gallery_arr.each do |gallery| %>
       <% if gallery.file_type.downcase == "video" %>
-        <div class="col-lg-3 continent-list-gallery" data-html="#video<%= gallery.id %>"
+        <div class="col-xs-6 col-md-3 continent-list-gallery" data-html="#video<%= gallery.id %>"
              data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>" >
           <div style="display:none;" id="video<%= gallery.id %>">
             <video class="lg-video-object lg-html5" controls="controls">
@@ -23,7 +23,7 @@
           </figure>
         </div>
       <% else %>
-        <div class="col-lg-3 continent-list-gallery" data-src="<%= gallery.image.url %>"
+        <div class="col-xs-6 col-md-3 continent-list-gallery" data-src="<%= gallery.image.url %>"
            data-sub-html="<h4><%= gallery.title %></h4><%= gallery.description %>" >
           <figure class="effect-chico" style="width: 100%">
             <%= image_tag gallery.image.url(:medium) %>

@@ -1180,7 +1180,7 @@ footer#footer-menu{
 }
 
 footer#footer-info{
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "karla",sans-serif;
   background: #0d0d0d;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -1189,7 +1189,7 @@ footer#footer-info{
 }
 
 .ct-menu-footer {
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "karla",sans-serif;
   float: left;
 }
 
@@ -1214,6 +1214,20 @@ footer#footer-info{
   float: left;
 }
 
+.footer-address{
+  color: #fff;
+  font-size: 14px;
+  line-height: 25px;
+}
+
+.footer-address i{
+  margin-right: 7px;
+}
+
+.footer-address .office, .footer-address .factory1, .footer-address .factory2{
+  text-align: center;
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .ct-menu-footer li{
     padding: 0 20px;
@@ -1231,31 +1245,32 @@ footer#footer-info{
 }
 
 @media only screen and (max-width: 767px) {
-  .footer-brand{
+  .footer-logo img {
+    margin: 0 auto;
+  }
+  .footer-menu{
+    margin-top: 30px;
+  }
+  .footer-logo{
     text-align: center;
     padding-bottom: 10px;
     border-bottom: 1px solid #484848;
   }
+  .ct-menu-footer {
+    margin-bottom: 30px;
+  }
   .ct-menu-footer li{
     padding: 5px 0;
-    width: 50%;
+    width: 100%;
     text-align: center;
+  }
+  .footer-address{
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #484848;
   }
 }
 
-.footer-address{
-  color: #fff;
-  font-size: 14px;
-  line-height: 25px;
-}
-
-.footer-address i{
-  margin-right: 7px;
-}
-
-.footer-address .office, .footer-address .factory1, .footer-address .factory2{
-  text-align: center;
-}
 /*
 @media (min-width: 992px) and (max-width: 1199px) {
   .footer-address .factory{
@@ -1805,20 +1820,23 @@ ul.tree li img{
 
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  .about-us, .clients-header, .clients{
-    padding: 0 10%
-  }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .about-us, .clients-header, .clients{
-    padding: 0 5%
-  }
+
 }
 
 @media (max-width: 767px) {
-  .about-us, .clients-header, .clients{
-    padding: 0 20px;
+  .about-us .content{
+    margin-top: 40px;
+    text-align: center;
+  }
+  .about-us .u_icon img{
+    margin: 0 auto;
+  }
+  .about-us .vision_mision{
+    margin-bottom: 30px;
   }
 }
 
@@ -1915,6 +1933,34 @@ ul.tree li img{
   background-color: transparent;
   border-color: #00bcff;
   color: #00bcdf;
+}
+
+@media (min-width: 1200px) {
+  .news-list{
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .news-list{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .news-list{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .news-list{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 /*---------------------------- news end --------------------------------------*/
@@ -2197,6 +2243,20 @@ figure.effect-chico:hover p {
   color: #2b85c3;
   font-size: 13px;
   margin-top: 10px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (max-width: 767px) {
+  .travel-post-image {
+    height: 100%;
+  }
 }
 
 /*--------------------------- travel post end ----------------------------------*/

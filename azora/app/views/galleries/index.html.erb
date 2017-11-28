@@ -11,12 +11,12 @@
 </div>
 
 <div class="container">
-  <div class="col-xs-12 continent-galleries">
+  <div class="col-xs-12 continent-galleries no-padding-lr">
     <% @continents.each do |continent_list| %>
       <div class="grid row">
         <% continent_list.each_with_index do |continent, x| %>
-          <div class="col-sm-4">
-            <div class="col-sm-12 no-padding-lr">
+          <div class="col-xs-12 col-sm-12 col-md-4">
+            <div class="col-xs-12 no-padding-lr">
               <figure class=" effect-chico continent-box" style="width: 100%">
                 <%= image_tag continent.banner.url(:medium), :alt => continent.banner.url %>
                 <figcaption>
@@ -24,13 +24,13 @@
                   <p>
                     <% countries = continent.countries.size >= 15 ? continent.countries.limit(13) : continent.countries %>
                     <% countries.each do |country| %>
-                      <span class="col-sm-6 no-padding-lr">
+                      <span class="col-xs-6 no-padding-lr">
                         <i class="fa fa-circle" aria-hidden="true"></i>&nbsp
                         <%= country.name.downcase == "united kingdom" ? "UK" : country.name %>
                       </span>
                     <% end %>
                     <% if continent.name.downcase == "europe" && continent.countries.size >15 %>
-                      <span class="col-sm-6 no-padding-lr">
+                      <span class="col-xs-6 no-padding-lr">
                         <i class="fa fa-circle" aria-hidden="true"></i>&nbsp;
                         <%= "Etc" %>
                       </span>
@@ -39,10 +39,10 @@
                 </figcaption>
               </figure>
             </div>
-            <div class="col-sm-12 continent-name">
+            <div class="col-xs-12 continent-name">
               <%= link_to continent.name, gallery_path(continent.permalink) %>
             </div>
-            <div class="col-sm-12 continent-last-updated">
+            <div class="col-xs-12 continent-last-updated">
               Last Updated <%= continent.updated_at.strftime('%d-%b-%Y') %>
             </div>
           </div>
