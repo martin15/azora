@@ -14,37 +14,39 @@
 
 <div class="container" style="padding-top: 0;">
   <%= render :partial => "shared/flash" %>
-  <div class="col-xs-12 news-list">
-    <div class="col-xs-12 main-news">
-      <div class=col-sm-6>
-        <%= link_to news_detail_path(@main_news.permalink) do %>
-          <%= image_tag @main_news.banner.url(:large), :class => "img img-responsive" %>
-        <% end %>
-      </div>
-      <div class=col-sm-6>
-        <span class="col-xs-12 title">
-          <%= link_to @main_news.title, news_detail_path(@main_news.permalink) %>
-        </span>
-        <span class="col-xs-12 news-info">
-          <span class="col-xs-12 news-info-date">
-            <i class="fa fa-calendar"></i><%= @main_news.updated_at.strftime('%d-%b-%Y') %>
-          </span>
-          <% unless @main_news.user.blank? %>
-            <span class="col-xs-12 news-info-author">
-              <i class="fa fa-user"></i>By <%= @main_news.user %>
-            </span>
+  <% unless @main_news.nil? %>
+    <div class="col-xs-12 news-list">
+      <div class="col-xs-12 main-news">
+        <div class=col-sm-6>
+          <%= link_to news_detail_path(@main_news.permalink) do %>
+            <%= image_tag @main_news.banner.url(:large), :class => "img img-responsive" %>
           <% end %>
-        </span>
-        <span class="col-xs-12 short-content">
-          <%= simple_format(@main_news.short_content +
-                            " #{link_to '[...]', news_detail_path(@main_news.permalink)}") %>
-        </span>
-        <span class="col-xs-12 more no-padding-lr">
-          <%= link_to "Read More...", news_detail_path(@main_news.permalink), :class => "btn read-more" %>
-        </span>
+        </div>
+        <div class=col-sm-6>
+          <span class="col-xs-12 title">
+            <%= link_to @main_news.title, news_detail_path(@main_news.permalink) %>
+          </span>
+          <span class="col-xs-12 news-info">
+            <span class="col-xs-12 news-info-date">
+              <i class="fa fa-calendar"></i><%= @main_news.updated_at.strftime('%d-%b-%Y') %>
+            </span>
+            <% unless @main_news.user.blank? %>
+              <span class="col-xs-12 news-info-author">
+                <i class="fa fa-user"></i>By <%= @main_news.user %>
+              </span>
+            <% end %>
+          </span>
+          <span class="col-xs-12 short-content">
+            <%= simple_format(@main_news.short_content +
+                              " #{link_to '[...]', news_detail_path(@main_news.permalink)}") %>
+          </span>
+          <span class="col-xs-12 more no-padding-lr">
+            <%= link_to "Read More...", news_detail_path(@main_news.permalink), :class => "btn read-more" %>
+          </span>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <div class="col-xs-12 news-list">
     <h1>Other News</h1>
     <% @all_news_arr.each do |news_arr| %>
