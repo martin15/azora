@@ -30,7 +30,7 @@
     </thead>
     <tbody>
       <% @all_news.each_with_index do |news, x| %>
-        <tr>
+        <tr class="<%= 'warning' if news.default? %>">
           <th><%= @no+x+1 %></th>
           <td><%= image_tag news.banner.url(:small),:class => "img img-responsive" %></td>
           <td><%= news.title %></td>

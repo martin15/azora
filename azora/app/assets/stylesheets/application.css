@@ -210,15 +210,15 @@ section > .container{
 }
 
 @media (min-width: 1200px) {
-  .home-banner{width: 1200px;margin: 0 auto}
+  .home-banner{width: 100%;margin: 0 auto}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  .home-banner{width: 990px;margin: 0 auto}
+  .home-banner{width: 100%;margin: 0 auto}
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .home-banner{width: 765px;margin: 0 auto}
+  .home-banner{width: 100%;margin: 0 auto}
 }
 
 /*@media (max-width: 767px) {
@@ -226,13 +226,14 @@ section > .container{
 }*/
 
 .banner{margin: 0 auto;float: none;padding: 0;}
-.banner:after, section > .page-header::after{
+.banner:after, section > .page-header::after,
+.service-background::after{
   clear: both;
   content: "";
   display: table;
 }
 
-section > .page-header{
+section > .page-header, .service-background{
   width: 100%;
 /*  background-color: #00bcdf;*/
   margin: 0px;
@@ -1066,6 +1067,14 @@ button, .btn{
   margin-bottom: 80px;
 }
 
+.home-welcome-aboard p{
+  padding: 0 30px;
+}
+
+.home-welcome-aboard p.m_text{
+  font-size: 15px;
+}
+
 .home-products, .home-travel-post{
   margin-bottom: 60px;
 }
@@ -1083,41 +1092,27 @@ button, .btn{
   color: #000000;
 }
 
-.home-product-image, .home-product-name,
-.home-certificate-image, .home-certificate-name,
-.main-certificate-image, .main-certificate-name,
-.certificate-image, .certificate-name,
-.client-image, .client-name{
-  width: 100%;
-  float: left;
-  margin-bottom: 10px;
-  text-align: center;
+.concepts{
+  margin: 50px 0 80px;
+  padding: 0 40px;
 }
 
-.home-certificate-image img, .main-certificate-image img, .certificate-image img,
-.home-product-image img, .client-image img{
-  margin: 0 auto 10px;
-}
-
-.main-certificate{
-  padding-top: 20px;
-}
-
-.home-certificate-name, .main-certificate-name, .certificate-name, .client-name{
-  font-family: "Montserrat-Normal", sans-serif;
-  opacity: 0\1;
-  filter: alpha(opacity=1);
-  visibility: visible;
+.concepts h5{
+  color: #2a81c6;
   text-transform: uppercase;
-  transition: visibility 0s linear 0.25s, opacity 0.25s linear 0s;
-  -webkit-transition: visibility 0s linear 0.250s,opacity 0.250s linear;
-  margin-bottom: 10px;
-  height: 55px;
+  font-size: 19px;
+  text-align: center;
+  font-weight: 600;
 }
 
-.client-name{
-  opacity: 1!important;
-  visibility: visible!important;
+.concepts img{
+  margin: 0 auto;
+}
+
+.concepts .text{
+  text-align: center;
+  color: #000;
+  font-size: 15px;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -1845,9 +1840,6 @@ ul.tree li img{
   background: transparent url('../assets/loading_spinner.gif') center no-repeat;
 }
 
-
-
-
 .clear-all{
   clear: both;
 }
@@ -1860,32 +1852,72 @@ ul.tree li img{
   text-align: center;
 }
 
+.news-list .row{
+  margin-bottom: 50px;
+}
+
+.news-list h1{
+  text-align: center;
+  color: #676767;
+  margin: 25px 0 50px;
+}
+
+/* 
 .news:first-child{
   padding-top: 50px!important;
+} */
+
+.main-news{
+  padding: 50px;
+  margin-top: 50px;
+  background-color: #eee;
 }
 
 .news{
   font-family: "Karla",sans-serif;
   border-bottom: 5px solid #fff;
-  padding: 35px 0;
-  background-color: #eee;
+  /* padding: 35px 0; */
 }
 
-.news .news-short-detail .title, .news .news-detail .title{
-  font-size: 30px;
+.news-list > .row > .news:after {
+  content:"";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -20px;
+  width: 0;
+  height: 0;
+  border-left: solid 20px transparent;
+  border-right: solid 20px transparent;
+  border-bottom: solid 25px #eee;
+  z-index:9999;
+}
+
+.news .news-short-detail{
+  background-color: #eee;
+  padding: 25px;
+}
+
+.main-news .title, .news .news-short-detail .title, .news .news-detail .title{
+  font-size: 23px;
   color: #00bcdf;
-  padding: 0 0 10px 0;
+  padding: 0 0 15px 0;
   text-align: center;
   margin-top: 10px;
+  line-height: 25px
 }
 
-.news .news-short-detail .news-info, .news .news-detail .news-info{
+.main-news .news-info, .news .news-short-detail .news-info, .news .news-detail .news-info{
   font-size: 12px;
   text-align: center;
   margin-bottom: 15px;
   color: #777;
 }
 
+.main-news .news-info, .main-news .news-info .news-info-date{text-align: left;padding-left: 0;}
+
+.main-news .news-info .news-info-date,
+.main-news .news-info .news-info-author,
 .news .news-short-detail .news-info .news-info-date,
 .news .news-short-detail .news-info .news-info-author,
 .news .news-detail .news-info .news-info-date,
@@ -1894,6 +1926,8 @@ ul.tree li img{
   float: none;
 }
 
+.main-news .news-info .news-info-date i,
+.main-news .news-info .news-info-author i,
 .news .news-short-detail .news-info .news-info-date i,
 .news .news-short-detail .news-info .news-info-author i,
 .news .news-detail .news-info .news-info-date i,
@@ -1904,21 +1938,17 @@ ul.tree li img{
   font-weight: 600;
 }
 
-.news .news-short-detail .short-content, .news .news-detail .short-content{
+.main-news .short-content, .news .news-short-detail .short-content, .news .news-detail .short-content{
   font-size: 16px;
   color: #777;
   padding: 0 0 20px 0;
   line-height: 22px;
 }
 
-.news .news-short-detail .short-content{
-  text-align: center;
-}
+.news .news-short-detail .short-content, .news .news-short-detail .more{text-align: center;}
+.main-news .title, .main-news .short-content, .main-news .more{text-align: left;}
 
-.news .news-short-detail .more{
-  text-align: center;
-}
-
+.main-news .more a.read-more, 
 .news .news-short-detail .more a.read-more, .news .news-detail .more a.read-more {
   font-family: "Karla",sans-serif;
   background-color: #00bcdf;
@@ -1929,6 +1959,7 @@ ul.tree li img{
   margin: 0 auto;
 }
 
+.main-news .more a.read-more:hover, 
 .news .news-short-detail .more a.read-more:hover{
   background-color: transparent;
   border-color: #00bcff;
@@ -1937,8 +1968,9 @@ ul.tree li img{
 
 @media (min-width: 1200px) {
   .news-list{
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 50px;
   }
 }
 
@@ -2741,7 +2773,51 @@ figure.effect-chico:hover p {
   margin-bottom: 10px;
 }
 /*---------------------------- contact us end ---------------------------------*/
+/*-------------------------------- Service ------------------------------------*/
 
+.service-title{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.service-title a{
+  margin: 10px;
+}
+
+.service-title a.btn-menu{
+  background-color: #fff;
+  border-color: #eee;
+  color: #ADADAD
+}
+
+.service-title a.btn-active, .service-title a:hover{
+  background-color: #2782C3;
+  border-color: #2e6da4;
+  color: #fff;
+}
+
+.service-container-one{
+  color: #AEB0AF;
+  font-size: 15px;
+}
+
+.service-container-two{
+  padding:30px 150px;
+  color: #AEB0AF;
+}
+
+.service-container-two h4{
+  font-size: 14px;
+  text-align: center;
+}
+
+.service-background{
+  margin-top: 20px;
+  padding: 30px 200px;
+  background-color: #F2F2F2;
+}
+
+/*----------------------------- Service end -----------------------------------*/
 
 
 .breadcrum-masking{

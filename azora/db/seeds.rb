@@ -91,5 +91,10 @@ puts term_and_condition.inspect
 incentive_tour = Service.find_or_create_by(:name => "Incentive Tour")
 mice = Service.find_or_create_by(:name => "M.I.C.E")
 other_service = Service.find_or_create_by(:name => "Other Service")
+other_service.destroy unless other_service.nil?
+
+visa = Service.find_or_create_by(:name => "Visa")
+tickets = Service.find_or_create_by(:name => "Tickets")
+hotels = Service.find_or_create_by(:name => "Hotels")
 
 

@@ -1,6 +1,6 @@
 <div class="page-header" style="background-color:#3e3e3e">
   <div class="container">
-    <div class="col-xs-12 col-sm-6 name no-padding-lr">Galleries</div>
+    <div class="col-xs-12 col-sm-6 name no-padding-lr">Our Services</div>
     <div class="col-xs-12 col-sm-6 breadcrumb">
       <ol class="breadcrumb">
         <li><%= link_to "Home", root_path %></li>
@@ -13,9 +13,36 @@
 </div>
 
 <div class="container">
+  <div class="col-xs-12 service-title">
+    <% @services.each_with_index do |service, x| %>
+      <% active = get_service_name == service.permalink ? "active" : "menu" %>
+      <% if service.permalink.downcase == "visa" %>
+        <%= link_to service.name, visa_detail_path(Country.default.permalink), class: "btn btn-#{active}" %> 
+      <% else %>
+        <%= link_to service.name, services_path(service.permalink), class: "btn btn-#{active}" %>
+        <%#= link_to service.name, "##{service.permalink}", class: "btn btn-#{active}",
+                    id: "#{service.permalink}-tab", data: {toggle: "tab"} %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+<%= raw @service.value %>
+<!--
+
+<div class="tab-content" id="myTabContent">
+  <%# @services.each_with_index do |service, x| %>
+    <div class="tab-pane fade " id="<%#= service.permalink %>" role="tabpanel">
+      <%#= raw service.value %>
+    </div>
+  <%# end %>
+</div>
+
+
+<div class="container">
   <div class="col-xs-4">
     <%#*<div class="service-continents-list">%>
-      <!--
       <%#*<ul>%>
         <%#*<li class="<%= 'active' if @service.permalink == 'incentive-tour' %>">%>
           <%#= link_to (image_tag "mice.jpg", :class => "img img-responsive"),
@@ -30,7 +57,6 @@
                        services_path("other-service") %>
         <%#*</li>%>
       <%#*</ul>%> 
-        -->
 
       <div class="grid">
         <% [["mice.jpg", "Incentive Tour"],
@@ -91,3 +117,23 @@
     <% end %>
   </div>
 </div>
+-->
+<!--
+
+old data 
+<p><span style="color:#337ab7"><span style="font-size:14px">Our highly motivated and experienced staffs will assist you to ensure your tour program complete success! We can implement your ideas of budget and destination and help you conceptualize an attractive package tour that can be fully enjoyed by all your customers.</span></span></p>
+
+<p>&nbsp;</p>
+
+<p>We Offer :</p>
+
+<ul>
+	<li>Family packages</li>
+	<li>Honeymoon packages</li>
+	<li>Corporate Incentive tours</li>
+	<li>Travel package for various sport event</li>
+</ul>
+
+<p>&nbsp;</p>
+
+-->

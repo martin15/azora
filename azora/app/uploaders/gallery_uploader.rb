@@ -5,6 +5,8 @@ class GalleryUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  include CarrierWave::Video  # for your video processing
+  include CarrierWave::Video::Thumbnailer
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -48,12 +50,22 @@ class GalleryUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [100, 100]
   end
 
+  version :vid_thumb, :if => :video?  do
+    process thumbnail: [{format: 'png', quality: 10, size: 400, strip: true, logger: Rails.logger}]
+    def full_filename for_file
+      png_name for_file, version_name
+    end
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
     %w(jpg jpeg gif png mp4 mov mkv)
   end
 
+  def png_name for_file, version_name
+    %Q{#{version_name}_#{for_file.chomp(File.extname(for_file))}.png}
+  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
@@ -63,5 +75,9 @@ class GalleryUploader < CarrierWave::Uploader::Base
   protected
     def image?(new_file)
       new_file.content_type.include? 'image'
+    end
+
+    def video?(new_file)
+      new_file.content_type.include? 'video'
     end
 end

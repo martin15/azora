@@ -47,4 +47,9 @@ module ApplicationHelper
     return "suitcase" if @service.permalink == "other-service"
     return "mice"
   end
+
+  def get_service_name
+    return "visa" if controller_name == "travel_document"
+    return params[:permalink]
+  end
 end

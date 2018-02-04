@@ -52,7 +52,9 @@
           <%#*<li class="nav-item single">%>
             <%#= link_to "Persyaratan Visa", visa_detail_path(Country.default.permalink) %>
           <%#*</li>%>
-          <li class="nav-item single"><%= link_to "Galleries", galleries_path %></li>
+          <li class="nav-item single">
+            <%= link_to "Galleries", gallery_path(Continent.default.try(:permalink)) %>
+          </li>
           <li class="nav-item single"><%= link_to "News", news_path %></li>
           <li class="nav-item single"><%= link_to "About Us", company_profile_path %></li>
         </ul>
@@ -85,7 +87,7 @@
             <li><%= link_to "Persyaratan Visa", visa_detail_path(Country.default.permalink) %></li>
           </ul>
           <ul class="ct-menu-footer list-unstyled col-xs-6">
-            <li><%= link_to "Gallery", galleries_path(Continent.first.permalink) %></li>
+            <li><%= link_to "Gallery", gallery_path(Continent.default.try(:permalink)) %></li>
             <li><%= link_to "News", news_path %></li>
             <li><%= link_to "About Us", company_profile_path %></li>
             <li><%= link_to "Career", career_path %></li>

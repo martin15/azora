@@ -18,4 +18,8 @@ class Continent < ActiveRecord::Base
   def free_visa_list_by_country
     self.countries.where("free_visa = ?", true)
   end
+
+  def self.default
+    self.all.order("sequence").first
+  end
 end

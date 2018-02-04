@@ -43,7 +43,8 @@ class Admin::NewsController < Admin::ApplicationController
   private
 
     def news_params
-      params.require(:news).permit(:banner, :title, :content, :short_content, :user, :permalink)
+      params.require(:news).permit(:banner, :title, :content, :short_content, :user, :permalink,
+                                   :default)
     end
 
     def find_news

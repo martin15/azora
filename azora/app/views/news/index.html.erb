@@ -15,29 +15,67 @@
 <div class="container" style="padding-top: 0;">
   <%= render :partial => "shared/flash" %>
   <div class="col-xs-12 news-list">
-    <% @all_news.each do |news| %>
-      <div class="col-xs-12 news">
-        <div class="col-xs-12 news-short-detail padding-lr-25">
-          <%= image_tag news.banner.url(:large), :class => "img img-responsive" %>
-          <span class="col-xs-12 title"><%= link_to news.title, news_detail_path(news.permalink) %></span>
-          <span class="col-xs-12 news-info">
-            <span class="col-xs-3 news-info-date">
-              <i class="fa fa-calendar"></i><%= news.updated_at.strftime('%d-%b-%Y') %>
+    <div class="col-xs-12 main-news">
+      <div class=col-sm-6>
+        <%= link_to news_detail_path(@main_news.permalink) do %>
+          <%= image_tag @main_news.banner.url(:large), :class => "img img-responsive" %>
+        <% end %>
+      </div>
+      <div class=col-sm-6>
+        <span class="col-xs-12 title">
+          <%= link_to @main_news.title, news_detail_path(@main_news.permalink) %>
+        </span>
+        <span class="col-xs-12 news-info">
+          <span class="col-xs-12 news-info-date">
+            <i class="fa fa-calendar"></i><%= @main_news.updated_at.strftime('%d-%b-%Y') %>
+          </span>
+          <% unless @main_news.user.blank? %>
+            <span class="col-xs-12 news-info-author">
+              <i class="fa fa-user"></i>By <%= @main_news.user %>
             </span>
-            <% unless news.user.blank? %>
-              <span class="col-xs-3 news-info-author">
-                <i class="fa fa-user"></i>By <%= news.user %>
+          <% end %>
+        </span>
+        <span class="col-xs-12 short-content">
+          <%= simple_format(@main_news.short_content +
+                            " #{link_to '[...]', news_detail_path(@main_news.permalink)}") %>
+        </span>
+        <span class="col-xs-12 more no-padding-lr">
+          <%= link_to "Read More...", news_detail_path(@main_news.permalink), :class => "btn read-more" %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 news-list">
+    <h1>Other News</h1>
+    <% @all_news_arr.each do |news_arr| %>
+      <div class="row">
+        <% news_arr.each do |news| %>
+          <div class="col-xs-4 news">
+            <div class="col-xs-12 news-short-detail">
+              <%= link_to news_detail_path(news.permalink) do %>
+              <%= image_tag news.banner.url(:medium), :class => "img img-responsive" %>
+              <% end %>
+              <span class="col-xs-12 title"><%= link_to news.title, news_detail_path(news.permalink) %></span>
+              <span class="col-xs-12 news-info">
+                <span class="col-xs-12 news-info-date">
+                  <i class="fa fa-calendar"></i><%= news.updated_at.strftime('%d-%b-%Y') %>
+                </span>
+                <% unless news.user.blank? %>
+                  <span class="col-xs-12 news-info-author">
+                    <i class="fa fa-user"></i>By <%= news.user %>
+                  </span>
+                <% end %>
               </span>
-            <% end %>
-          </span>
-          <span class="col-xs-12 short-content">
-            <%= simple_format(news.short_content +
-                              " #{link_to '[...]', news_detail_path(news.permalink)}") %>
-          </span>
-          <span class="col-xs-12 more">
-            <%= link_to "Read More...", news_detail_path(news.permalink), :class => "btn read-more" %>
-          </span>
-        </div>
+              <span class="col-xs-12 short-content">
+                <%= simple_format(news.short_content +
+                                  " #{link_to '[...]', news_detail_path(news.permalink)}") %>
+              </span>
+              <span class="col-xs-12 more">
+                <%= link_to "Read More...", news_detail_path(news.permalink), :class => "btn read-more" %>
+              </span>
+            </div>
+          </div>
+        <% end %>
       </div>
     <% end %>
     <div class="col-xs-12 no_padding_lr pagination"><%= paginate @all_news %></div>

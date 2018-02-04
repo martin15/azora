@@ -14,7 +14,21 @@
 </div>
 
 <div class="container">
-  <%= render :partial => "shared/flash" %>
+  <div class="col-xs-12 service-title">
+    <% @services.each_with_index do |service, x| %>
+      <% active = get_service_name == service.permalink ? "active" : "menu" %>
+      <% if service.permalink.downcase == "visa" %>
+        <%= link_to service.name, visa_detail_path(Country.default.permalink) , 
+                    class: "btn btn-#{active}" %> 
+      <% else %>
+        <%= link_to service.name, services_path(service.permalink), 
+                    class: "btn btn-#{active}" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
   <div class="col-sm-3 col-md-3">
     <div class="panel-group" id="countries-accordion">
       <% @continents.each_with_index do |continent, x| %>

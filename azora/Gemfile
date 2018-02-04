@@ -28,9 +28,10 @@ gem 'carrierwave'
 
 gem 'kaminari'
 gem 'permalink_fu'
-gem "recaptcha", require: "recaptcha/rails"
+gem "recaptcha", "3.3.0", require: "recaptcha/rails"
 gem 'ckeditor'
 gem 'exception_notification'
+gem 'carrierwave-video-thumbnailer'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -43,7 +44,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', "9.0.6"
+  gem 'rb-readline'
 end
 
 group :development do

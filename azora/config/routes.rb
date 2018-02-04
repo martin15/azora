@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "about_us" => "about_us#company_profile", :as => "company_profile"
   post "contact_us" => "about_us#contact_us", :as => "contact_us"
   get "career" => "about_us#career", :as => "career"
-  get "galleries"  => "galleries#index", :as => "galleries"
+# get "galleries"  => "galleries#index", :as => "galleries"
   get "galleries/:permalink"  => "galleries#show", :as => "gallery"
   get "news" => "news#index", :as => "news"
   get "news/:permalink" => "news#show", :as => "news_detail"
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "service/:permalink" => "services#show", :as => "services"
   get "term_conditions" => "about_us#term_conditions", :as => "term_conditions"
   get "visa" => "travel_document#visa", :as => "visa"
-  get "visa/:permalink" => "travel_document#visa_detail", :as => "visa_detail"
+  get "/service/visa/:permalink" => "travel_document#visa_detail", :as => "visa_detail"
 
   get    '/login' => 'session#new', :as => "login"
   post   '/login' => 'session#create', :as => "login_create"

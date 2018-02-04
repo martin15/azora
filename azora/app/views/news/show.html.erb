@@ -29,7 +29,7 @@
             </span>
           <% end %>
         </span>
-        <%= image_tag @news.banner.url(:large), :class => "img img-responsive m-b-30" %>
+        <%= image_tag @news.banner.url(:large), :class => "img img-responsive", style: "margin: 0 auto 30px;" %>
         <span class="col-xs-12 short-content">
           <%= raw(@news.content) %>
         </span>
