@@ -105,3 +105,35 @@ p.nav-link{
   margin-bottom: 0;
   padding-top: 7px;
 }
+
+.admin section > .page-header div.name{
+  font-size: 30px;
+  color: #fff;
+  font-family: "Montserrat-Normal",sans-serif;
+  padding: 27px 0;
+}
+
+.admin section > .page-header div.breadcrumb{
+  font-size: 12px;
+  text-align: right;
+  color: #fff;
+  font-family: "Montserrat-Normal",sans-serif;
+  padding: 35px 0;
+}
+
+.admin section > .page-header div.breadcrumb li > a:hover{
+  color: #2b85c3;
+  text-decoration: underline;
+}
+
+.admin section > .page-header div.breadcrumb li.active{
+  color: #2b85c3;
+}
+
+
+
+.breadcrumb > li + li::before {
+  color: #fff!important;
+}
+
+

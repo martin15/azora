@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "news/:permalink" => "news#show", :as => "news_detail"
 #  get "passport" => "travel_document#passport", :as => "passport"
   get "privacy_policy" => "about_us#privacy_policy", :as => "privacy_policy"
+  get "service/hotels" => "hotels#index", :as => "hotels"
+  get "service/tickets" => "tickets#index", :as => "tickets"
   get "service/:permalink" => "services#show", :as => "services"
   get "term_conditions" => "about_us#term_conditions", :as => "term_conditions"
   get "visa" => "travel_document#visa", :as => "visa"
@@ -33,9 +35,11 @@ Rails.application.routes.draw do
       end
     end
     resources "galleries"
+    resources "hotels"
     resources "news"
     resources "services", :only => [:index, :edit, :update]
     resources "system_settings", :only => [:index, :edit, :update]
+    resources "tickets"
 #    resources "tours"do
 #      member do
 #        resources :tour_images, :param => :tour_image_id

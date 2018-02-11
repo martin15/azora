@@ -6,15 +6,24 @@
   <%= stylesheet_link_tag "lightgallery", "aos" %>
 <% end %>
 
-<div class="page-header" style="background-color:#3e3e3e">
-  <div class="container">
-    <div class="col-xs-12 col-sm-6 name no-padding-lr"><%= @continent.name.titleize %> Galleries</div>
-    <div class="col-xs-12 col-sm-6 breadcrumb">
-      <ol class="breadcrumb">
-        <li><%= link_to "Home", root_path %></li>
-        <li>Galleries</li>
-        <li class="active"><%= @continent.name.titleize %></li>
-      </ol>
+<div class="page-header small-banner banner-galleries">
+  <div class="banner-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
+      <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
+        <!--
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li>Galleries</li>
+          <li class="active"><%= @continent.name.titleize %></li>
+        </ol>
+        -->
+        <h2>MEMORIES WE CREATED</h2>
+        <p>
+          Our Highly motivated and experienced staffs will assist you to ensure 
+          your tour program complete success!
+        </p>
+      </div>
     </div>
   </div>
 </div>

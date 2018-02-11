@@ -20,6 +20,8 @@
       <% if service.permalink.downcase == "visa" %>
         <%= link_to service.name, visa_detail_path(Country.default.permalink) , 
                     class: "btn btn-#{active}" %> 
+      <% elsif service.permalink.downcase == "tickets" %>
+        <%= link_to service.name, tickets_path, class: "btn btn-#{active}" %> 
       <% else %>
         <%= link_to service.name, services_path(service.permalink), 
                     class: "btn btn-#{active}" %>

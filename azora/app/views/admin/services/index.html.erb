@@ -14,9 +14,11 @@
 
 <div class="container">
   <%= render :partial => "shared/flash" %>
-  <%#*<p class="nav-link">%>
-    <%#= link_to "Manage Banner", admin_banners_path %>
-  <%#*</p>%>
+  <p class="nav-link">
+    <%= link_to "Manage Hotels", admin_hotels_path %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Manage Tickets", admin_tickets_path %>
+  </p>
   <table class="table table-hover">
     <thead>
       <tr>

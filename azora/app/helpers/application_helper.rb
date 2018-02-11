@@ -50,6 +50,8 @@ module ApplicationHelper
 
   def get_service_name
     return "visa" if controller_name == "travel_document"
+    return "hotels" if controller_name == "hotels"
+    return "tickets" if controller_name == "tickets"
     return params[:permalink]
   end
 end

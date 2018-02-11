@@ -1,0 +1,50 @@
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <%#*<div class="breadcrum-masking">%>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Hotels</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Admin", admin_path %></li>
+          <li class="active">Hotels</li>
+        </ol>
+      </div>
+    <%#*</div>%>
+  </div>
+</div>
+
+<div class="admin container">
+  <%= render :partial => "shared/flash" %>
+  <p class="nav-link">
+    <%= link_to "Add new hotel", new_admin_hotel_path %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Manage Tickets", admin_tickets_path %>
+  </p>
+  <table class="table table-hover hotel">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Logo</th>
+        <th>Name</th>
+        <th>Website</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @hotels.each_with_index do |hotel, x| %>
+        <tr>
+          <th><%= @no+x+1 %></th>
+          <td><%= image_tag hotel.try(:logo).try(:url, :thumb), class: "img img-resposive" %></td>
+          <td><%= hotel.name %></td>
+          <td><%= hotel.website %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_hotel_path(hotel.id), :class => "btn btn-success" %>
+            <%= link_to "Delete", admin_hotel_path(hotel.id ), :method => :delete,
+                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="col-xs-12 no_padding_lr pagination"><%= paginate @hotels %></div>
+</div>

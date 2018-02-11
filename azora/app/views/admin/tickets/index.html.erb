@@ -1,0 +1,50 @@
+<div class="page-header" style="background-color:#3e3e3e">
+  <div class="container">
+    <%#*<div class="breadcrum-masking">%>
+      <div class="col-xs-12 col-sm-4 name no-padding-lr">Tickets</div>
+      <div class="col-xs-12 col-sm-8 breadcrumb">
+        <ol class="breadcrumb">
+          <li><%= link_to "Admin", admin_path %></li>
+          <li class="active">Tickets</li>
+        </ol>
+      </div>
+    <%#*</div>%>
+  </div>
+</div>
+
+<div class="admin container">
+  <%= render :partial => "shared/flash" %>
+  <p class="nav-link">
+    <%= link_to "Add new ticket", new_admin_ticket_path %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Manage Hotels", admin_hotels_path %>
+  </p>
+  <table class="table table-hover ticket">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Logo</th>
+        <th>Name</th>
+        <th>Website</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tickets.each_with_index do |ticket, x| %>
+        <tr>
+          <th><%= @no+x+1 %></th>
+          <td><%= image_tag ticket.try(:logo).try(:url, :thumb), class: "img img-resposive" %></td>
+          <td><%= ticket.name %></td>
+          <td><%= ticket.website %></td>
+          <td>
+            <%= link_to "Edit", edit_admin_ticket_path(ticket.id), :class => "btn btn-success" %>
+            <%= link_to "Delete", admin_ticket_path(ticket.id ), :method => :delete,
+                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="col-xs-12 no_padding_lr pagination"><%= paginate @tickets %></div>
+</div>
