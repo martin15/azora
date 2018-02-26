@@ -190,7 +190,7 @@ Last change:	23.02.2016
 }
 
 body, html{
-  font-family: "Karla", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 section#section{
@@ -1179,7 +1179,7 @@ footer#footer-menu{
 }
 
 footer#footer-info{
-  font-family: "karla",sans-serif;
+  font-family: "Open Sans",sans-serif;
   background: #0d0d0d;
   padding-top: 20px;
   padding-bottom: 30px;
@@ -1188,7 +1188,7 @@ footer#footer-info{
 }
 
 .ct-menu-footer {
-  font-family: "karla",sans-serif;
+  font-family: "Open Sans",sans-serif;
   float: left;
 }
 
@@ -1767,27 +1767,27 @@ ul.tree li img{
 }
 
 .about-us p{
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "Open sans",sans-serif;
 }
 
 .about-us .header{
-  font-family: "Montserrat-Normal",sans-serif;
-  font-size: 18px;
+  font-family: "Open sans",sans-serif;
+  font-size: 20px;
   font-weight: 600;
   color: #2b85c3;
   margin-bottom: 30px;
 }
 
 .about-us .desc{
-  font-family: "Montserrat-Normal",sans-serif;
-  font-size: 14px;
+  font-family: "Open sans",sans-serif;
+  font-size: 16px;
   margin-bottom: 30px;
 }
 
 .about-us .vision_mision{
   padding: 20px 20px;
   background-color: #f4f8fa;
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "Open sans",sans-serif;
   min-height: 325px;
 }
 
@@ -1799,16 +1799,17 @@ ul.tree li img{
 }
 
 .about-us .vision_mision .title{
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "Open sans",sans-serif;
   color: #2b85c3;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 15px;
   text-align: center;
 }
 
 .about-us .vision_mision .value ul li{
-  font-family: "Montserrat-Normal",sans-serif;
+  font-family: "Open sans",sans-serif;
   margin-bottom: 5px;
+  font-size: 16px;
 }
 
 .clients-header h3{
@@ -1878,7 +1879,7 @@ ul.tree li img{
 }
 
 .news{
-  font-family: "Karla",sans-serif;
+  font-family: "Open Sans",sans-serif;
   border-bottom: 5px solid #fff;
   /* padding: 35px 0; */
 }
@@ -1954,7 +1955,7 @@ ul.tree li img{
 
 .main-news .more a.read-more, 
 .news .news-short-detail .more a.read-more, .news .news-detail .more a.read-more {
-  font-family: "Karla",sans-serif;
+  font-family: "Open Sans",sans-serif;
   background-color: #00bcdf;
   border-color: #00bcff;
   color: #fff;
@@ -2245,8 +2246,8 @@ figure.effect-chico:hover p {
 }
 
 .travel-post-detail > .title{
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 20px;
+  margin-bottom: 15px;
   line-height: 1.1;
   font-weight: 400;
 }
@@ -2260,7 +2261,7 @@ figure.effect-chico:hover p {
 }
 
 .travel-post-detail > .short-content{
-  font-size: 13px;
+  font-size: 14px;
   color: #777;
   padding: 0 0 20px 0;
   line-height: 22px;
@@ -2802,7 +2803,7 @@ figure.effect-chico:hover p {
 
 .service-container-one{
   color: #AEB0AF;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .service-container-two{
@@ -2811,7 +2812,7 @@ figure.effect-chico:hover p {
 }
 
 .service-container-two h4{
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
 }
 
