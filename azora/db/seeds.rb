@@ -93,8 +93,15 @@ mice = Service.find_or_create_by(:name => "M.I.C.E")
 other_service = Service.find_or_create_by(:name => "Other Service")
 other_service.destroy unless other_service.nil?
 
-visa = Service.find_or_create_by(:name => "Visa")
+visa = Service.find_by_name("Visa")
+if visa.nil?
+  visa = Service.create(:name => "Travel Visa")
+else
+  visa.update_attributes(:name => "Travel Visa")
+end
+
 tickets = Service.find_or_create_by(:name => "Tickets")
 hotels = Service.find_or_create_by(:name => "Hotels")
+package = Service.find_or_create_by(:name => "Package")
 
 
