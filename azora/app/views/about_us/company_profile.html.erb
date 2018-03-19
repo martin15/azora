@@ -4,15 +4,17 @@
 <% end %>
 
 
-<div class="page-header small-banner mice">
-  <div class="breadcrum-masking">
+<div class="page-header small-banner banner-about-us">
+  <div class="banner-masking">
     <div class="container">
-      <div class="col-xs-12 col-sm-4 name no-padding-lr">About Us</div>
-      <div class="col-xs-12 col-sm-8 breadcrumb">
+      <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
+      <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
+        <!--
         <ol class="breadcrumb">
           <li><%= link_to "Home", root_path %></li>
           <li class="active">About Us</li>
         </ol>
+        -->
       </div>
     </div>
   </div>
@@ -20,9 +22,10 @@
 
 <div class="container">
   <div class="col-xs-12 about-us">
+  <!--
     <div class="row m-b-40">
       <div class="col-xs-12 col-sm-6 aos-item u_icon" data-aos="flip-up">
-        <%= image_tag "about-us.jpg", :class => "img img-responsive" %>
+        <%#= image_tag "about-us.jpg", :class => "img img-responsive" %>
       </div>
       <div class="col-xs-12 col-sm-6 content">
         <div class="header">
@@ -34,10 +37,13 @@
         </div>
       </div>
     </div>
+    -->
     <div class="row">
       <div class="col-xs-12 col-sm-4 aos-item" data-aos="fade-right">
         <div class="col-xs-12 no-padding-lr vision_mision">
-          <span class="col-xs-12 no-padding-lr"><i class="fa fa-eye" aria-hidden="true"></i></span>
+          <span class="col-xs-12 no-padding-lr">
+            <%=  image_tag "our_vision.png", class: "img img-reponsive about-us-icon"%>
+          </span>
           <span class="col-xs-12 no-padding-lr title">Our Vision</span>
           <span class="col-xs-12 no-padding-lr value">
             <ul>
@@ -50,7 +56,9 @@
       </div>
       <div class="col-xs-12 col-sm-4 aos-item" data-aos="fade-up">
         <div class="col-xs-12 no-padding-lr vision_mision">
-          <span class="col-xs-12 no-padding-lr"><i class="fa fa-bullseye" aria-hidden="true"></i></span>
+          <span class="col-xs-12 no-padding-lr">
+            <%=  image_tag "our_mission.png", class: "img img-reponsive about-us-icon"%>
+          </span>
           <span class="col-xs-12 no-padding-lr title">Our Mission</span>
           <span class="col-xs-12 no-padding-lr value">
             <ul>
@@ -62,7 +70,9 @@
       </div>
       <div class="col-xs-12 col-sm-4 aos-item" data-aos="fade-left">
         <div class="col-xs-12 no-padding-lr vision_mision">
-          <span class="col-xs-12 no-padding-lr"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+          <span class="col-xs-12 no-padding-lr">
+            <%=  image_tag "our_core_value.png", class: "img img-reponsive about-us-icon"%>
+          </span>
           <span class="col-xs-12 no-padding-lr title">Our Core Values</span>
           <span class="col-xs-12 no-padding-lr value">
             <ul>

@@ -259,6 +259,9 @@ section > .page-header, .service-background{
 .banner-our-service{
   background: url(../assets/banner-our-service.jpg);
 }
+.banner-about-us{
+  background: url(../assets/banner_about_us.jpg);
+}
 
 .suitcase{
   background: url(../assets/suitcase.jpg);
@@ -1764,6 +1767,11 @@ ul.tree li img{
   display: block;
   height: auto;
   max-width: 100%;
+}
+
+.about-us .about-us-icon{
+  width: 75px;
+  margin: 0 auto 10px;
 }
 
 .about-us p{
