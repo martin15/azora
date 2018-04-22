@@ -1,0 +1,55 @@
+<div class="page-header small-banner banner-our-service">
+  <div class="banner-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
+      <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
+        <!--
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Other Service", services_path("other-service") %></li>
+          <li class="active">Visa</li>
+        </ol>
+        <h2>WE PROVIDES</h2>
+        <p>
+          Our Highly motivated and experienced staffs will assist you to ensure
+          your tour program complete success!
+        </p>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => "services/shared_menu" %>
+
+<div class="container">
+  <div class="col-sm-3 col-md-3">
+    <% @types.each_with_index do |type, x| %>
+      <% active = 'active' if type == params[:type].downcase %>
+      <div class="col-xs-12 package-side-menu <%= active %>">
+        <%= link_to type.titleize, packages_path(type) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 package-list">
+    <% @packages_arr.each do |packages| %>
+      <div class="row">
+        <% packages.each do |package| %>
+          <div class=" col-sm-4 package-box">
+            <div class=" col-xs-12 package">
+              <%= link_to package_detail_path(package.permalink), :remote => true do %>
+                <%= image_tag package.banner.url(:small), :class => "img img-responsive" %>
+              <% end %>
+              <span class="col-xs-12 title">
+                <%= link_to package.title, package_detail_path(package.permalink), :remote => true %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="package-detail"></div>

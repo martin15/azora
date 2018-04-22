@@ -87,7 +87,7 @@
           <div class="col-xs-4 news">
             <div class="col-xs-12 news-short-detail">
               <%= link_to news_detail_path(news.permalink) do %>
-              <%= image_tag news.banner.url(:medium), :class => "img img-responsive" %>
+                <%= image_tag news.banner.url(:medium), :class => "img img-responsive" %>
               <% end %>
               <span class="col-xs-12 title"><%= link_to news.title, news_detail_path(news.permalink) %></span>
               <span class="col-xs-12 news-info">

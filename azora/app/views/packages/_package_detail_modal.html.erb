@@ -1,0 +1,17 @@
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     id="pacakge-detail-modal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><%= package.title %></h3>
+      </div>
+      <div class="modal-body">
+          <%= image_tag package.banner.url(:large), :class => "img img-responsive package-banner" %>
+          <%= raw(package.description) %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

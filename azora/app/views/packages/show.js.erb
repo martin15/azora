@@ -1,0 +1,6 @@
+<% if @package.nil? %>
+  alert("Cannot found the package")
+<% else %>
+  $("#package-detail").html("<%= escape_javascript(render :partial => "package_detail_modal", :locals => {:package => @package}) %>");
+  $("#pacakge-detail-modal").modal('show');
+<% end %>

@@ -1907,7 +1907,7 @@ ul.tree li img{
   border-left: solid 20px transparent;
   border-right: solid 20px transparent;
   border-bottom: solid 25px #eee;
-  z-index:9999;
+  z-index: 10;
 }
 
 .news .news-short-detail{
@@ -2934,4 +2934,88 @@ a.back-to-top i{
 .ticket-list > div{
   padding: 0 25px;
 }
+
+.package-side-menu:nth-of-type(1){
+  border-top: solid 1px black;
+}
+
+.package-side-menu{
+  background-color: #fff;
+  color: #000;
+  border-bottom: solid 1px black;
+  padding: 15px 20px;
+}
+
+.package-side-menu a{
+  display: block;
+}
+
+.package-side-menu:hover, .package-side-menu.active{
+  text-decoration: underline;
+  background-color: #efefef;
+  color: #2b85c3;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.package-list > .row > .package-box:after {
+  content:"";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -20px;
+  width: 0;
+  height: 0;
+  border-left: solid 20px transparent;
+  border-right: solid 20px transparent;
+  border-bottom: solid 25px #eee;
+  z-index: 10;
+}
+
+.package-box .package{
+  background-color: #eee;
+  padding: 25px;
+}
+
+.package-box .package .title{
+  font-size: 23px;
+  color: #00bcdf;
+  padding: 0 0 15px 0;
+  text-align: center;
+  margin-top: 25px;
+  line-height: 25px
+}
+
+.package-box .package .title:hover{
+  text-decoration: underline;
+}
+
+#pacakge-detail-modal table tr td{
+  padding-right: 10px;
+}
+
+#pacakge-detail-modal ol li{
+  margin-bottom: 7px;
+}
+
+#pacakge-detail-modal ol li ul{
+  padding-left: 25px;
+}
+
+#pacakge-detail-modal a{
+  color: #2b85c3;
+}
+
+#pacakge-detail-modal a:hover{
+  text-decoration: underline;
+}
+
+#pacakge-detail-modal .package-banner{
+  margin: 0 auto 40px;
+}
+
 
