@@ -1,0 +1,61 @@
+<div class="page-header small-banner banner-our-service">
+  <div class="banner-masking">
+    <div class="container">
+      <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
+      <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
+        <!--
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Other Service", services_path("other-service") %></li>
+          <li class="active">Visa</li>
+        </ol>
+        <h2>WE PROVIDES</h2>
+        <p>
+          Our Highly motivated and experienced staffs will assist you to ensure
+          your tour program complete success!
+        </p>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => "services/shared_menu" %>
+
+<div class="container">
+  <div class="col-sm-3 col-md-3">
+    <div class="panel-group" id="countries-accordion">
+      <% @types.each_with_index do |type, x| %>
+        <% type == @type ? (head = '';body = 'in') : (head = 'collapsed';body = '') %>
+        <div class="panel panel-default continent-country">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <%= link_to (raw "#{type}"),
+                          "#collapse-#{type}", :class => "accordion-toggle #{head}",
+                          :data => {:toggle => "collapse", :parent => "#accordion"} %>
+            </h4>
+          </div>
+          <div id="collapse-<%= type %>" class="panel-collapse collapse <%= body %>">
+            <div class="panel-body">
+              <% Package.get_by_type(type).each do |package| %>
+                <div class="col-xs-12 package">
+                  <%= link_to package.city.titleize, package_path(package.permalink), :class => "p-t-5" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-9 visa-requirement">
+    <div class="col-xs-12 visa-header">
+      <%= image_tag @package.banner.url(:large), :class => "img img-responsive" %>
+      <span><%= @package.title %></span>
+    </div>
+    <div class="col-xs-12">
+      <%= raw(@package.description) %>
+    </div>
+  </div>
+</div>
