@@ -2831,7 +2831,7 @@ figure.effect-chico:hover p {
 }
 
 .service-container-two{
-  padding:30px 150px;
+  padding:30px 110px;
   color: #AEB0AF;
 }
 
@@ -2992,6 +2992,10 @@ a.back-to-top i{
 
 .package-box .package .title:hover{
   text-decoration: underline;
+}
+
+#pacakge-detail-modal p, #pacakge-detail-modal{
+  font-family: "Open Sans",sans-serif;
 }
 
 #pacakge-detail-modal table tr td{
