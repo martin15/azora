@@ -30,15 +30,16 @@
       </div>
     <% end %>
     <div class="container">
-      <div class='hidden-xs col-sm-4 col-md-4 col-lg-4 bounce_in_left no-padding-l'>
+      <div class='hidden-xs col-sm-4 col-md-3 col-lg-3 bounce_in_left no-padding-l'>
         <%= link_to image_tag("logo.png", :alt => "Logo" , :class => "img-responsive",
                                :style => "height:80px!important"),
                     root_path %>
       </div>
-      <div class="hidden-xs col-sm-8 col-md-8 col-lg-8 no-padding-r">
+      <div class="hidden-xs col-sm-8 col-md-9 col-lg-9 no-padding-r">
         <ul role="menu" class="nav navbar-nav main-menu">
           <li class="nav-item single"><%= link_to "Home", root_path %></li>
           <li class="nav-item single"><%= link_to "Services", admin_services_path %></li>
+          <li class="nav-item single"><%= link_to "Packages", admin_packages_path %></li>
           <li class="nav-item single"><%= link_to "Countries", admin_countries_path %></li>
           <li class="nav-item single"><%= link_to "Gallery", admin_galleries_path %></li>
           <li class="nav-item single"><%= link_to "News", admin_news_index_path %></li>

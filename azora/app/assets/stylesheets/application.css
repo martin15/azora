@@ -2574,6 +2574,18 @@ figure.effect-chico:hover p {
   font-family: "Montserrat-Normal",sans-serif;
 }
 
+#countries-accordion .continent-country .package{
+  padding: 0 20px 10px;
+  font-size: 12px;
+  text-align: left;
+  font-family: "Montserrat-Normal",sans-serif;
+}
+
+#countries-accordion .continent-country .package a:hover{
+  text-decoration: underline;
+  color: #2b85c3;
+}
+
 #countries-accordion .continent-country .country-small img{
   padding: 0 7px;
 }

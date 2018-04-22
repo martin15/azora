@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "privacy_policy" => "about_us#privacy_policy", :as => "privacy_policy"
   get "service/hotels" => "hotels#index", :as => "hotels"
   get "service/tickets" => "tickets#index", :as => "tickets"
+  get "service/package/:permalink" => "packages#show", :as => "package"
   get "service/:permalink" => "services#show", :as => "services"
   get "term_conditions" => "about_us#term_conditions", :as => "term_conditions"
   get "visa" => "travel_document#visa", :as => "visa"
@@ -36,6 +37,7 @@ Rails.application.routes.draw do
     end
     resources "galleries"
     resources "hotels"
+    resources "packages"
     resources "news"
     resources "services", :only => [:index, :edit, :update]
     resources "system_settings", :only => [:index, :edit, :update]

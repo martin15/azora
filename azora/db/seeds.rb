@@ -95,13 +95,13 @@ other_service.destroy unless other_service.nil?
 
 visa = Service.find_by_name("Visa")
 if visa.nil?
-  visa = Service.create(:name => "Travel Visa")
+  visa = Service.find_or_create_by(:name => "Travel Visa")
 else
   visa.update_attributes(:name => "Travel Visa")
 end
 
 tickets = Service.find_or_create_by(:name => "Tickets")
 hotels = Service.find_or_create_by(:name => "Hotels")
-package = Service.find_or_create_by(:name => "Package")
+packages = Service.find_or_create_by(:name => "Packages")
 
 

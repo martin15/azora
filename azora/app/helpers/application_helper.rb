@@ -52,6 +52,7 @@ module ApplicationHelper
     return "travel-visa" if controller_name == "travel_document"
     return "hotels" if controller_name == "hotels"
     return "tickets" if controller_name == "tickets"
+    return "packages" if controller_name == "packages"
     return params[:permalink]
   end
 end

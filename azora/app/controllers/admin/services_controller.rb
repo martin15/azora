@@ -2,7 +2,8 @@ class Admin::ServicesController < Admin::ApplicationController
   before_filter :find_service, :only => [:edit, :update, :destroy, :delete]
 
   def index
-    @services = Service.order("#{sort_column} #{sort_direction}").page(params[:page]).per(10)
+    @services = Service.where("permalink in ('incentive-tour', 'mice')").
+                        order("#{sort_column} #{sort_direction}").page(params[:page]).per(10)
     @no = paging(10)
   end
 
