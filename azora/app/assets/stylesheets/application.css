@@ -1794,7 +1794,10 @@ ul.tree li img{
 
 .about-us .vision_mision{
   padding: 20px 20px;
-  background-color: #f4f8fa;
+/*  background-color: #f4f8fa;
+  background-image: "../assets/vm_background.jpg"*/
+  background: #f4f8fa url(../assets/vm_background.png) right no-repeat;
+  background-size: cover;
   font-family: "Open sans",sans-serif;
   min-height: 325px;
 }
@@ -1804,6 +1807,7 @@ ul.tree li img{
   font-size: 50px;
   margin-bottom: 10px;
   text-align: center;
+  color: #2b85c3;
 }
 
 .about-us .vision_mision .title{
