@@ -10,6 +10,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   def new
     @gallery = Gallery.new
     @countries = Country.country_list
+    @continents = Continent.continent_list
   end
 
   def create
@@ -20,6 +21,7 @@ class Admin::GalleriesController < Admin::ApplicationController
       redirect_to admin_galleries_path
     else
       @countries = Country.country_list
+      @continents = Continent.continent_list
       flash[:error] = "Gallery failed to create"
       render :action => :new
     end
@@ -27,6 +29,7 @@ class Admin::GalleriesController < Admin::ApplicationController
 
   def edit
     @countries = Country.country_list
+    @continents = Continent.continent_list
   end
 
   def update
@@ -36,6 +39,7 @@ class Admin::GalleriesController < Admin::ApplicationController
       redirect_to admin_galleries_path
     else
       @countries = Country.country_list
+      @continents = Continent.continent_list
       flash[:error] = "Gallery failed to update"
       render :action => :edit
     end

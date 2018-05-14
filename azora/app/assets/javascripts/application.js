@@ -206,21 +206,21 @@ $(document).ready(function() {
 //
       // Beacon
       var navbar_beacon = $('.navbar-beacon');
-//      if ($('.navbar').hasClass('navbar-dark')) {
+      if ($('.navbar').hasClass('navbar-dark')) {
 //        el_body.addClass('ct-menu-effect');
-//        $('.nav-item-toggle a i').on('click', function(e) {
-////          if(el_body.hasClass('cart-is-open')){
-////            el_body.removeClass('cart-is-open');
-////          }
-////          el_body.toggleClass('ct-menu-effect-activated');
-//          if (!(navbar_beacon.hasClass('bounceInRight bounceInRight-duration'))) {
-//            navbar_beacon.removeClass('bounceOutRight bounceInRight-duration').addClass('bounceInRight bounceInRight-duration');
-//          } else {
-//            navbar_beacon.removeClass('bounceInRight bounceInRight-duration').addClass('bounceOutRight bounceInRight-duration');
+        $('.nav-item-toggle a i').on('click', function(e) {
+//          if(el_body.hasClass('cart-is-open')){
+//            el_body.removeClass('cart-is-open');
 //          }
-//          e.preventDefault();
-//        });
-//      }
+//          el_body.toggleClass('ct-menu-effect-activated');
+          if (!(navbar_beacon.hasClass('bounceInRight bounceInRight-duration'))) {
+            navbar_beacon.removeClass('bounceOutRight bounceInRight-duration').addClass('bounceInRight bounceInRight-duration');
+          } else {
+            navbar_beacon.removeClass('bounceInRight bounceInRight-duration').addClass('bounceOutRight bounceInRight-duration');
+          }
+          e.preventDefault();
+        });
+      }
 
 //      el_wrapper.on('click', function(){
 //        if(navbar_beacon.hasClass('bounceInRight bounceInRight-duration')){
