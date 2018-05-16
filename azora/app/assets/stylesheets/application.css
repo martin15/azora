@@ -2868,11 +2868,17 @@ figure.effect-chico:hover p {
   .service-background{
     padding: 30px 100px;
   }
+  .service-container-two{
+    padding:30px 40px;
+  }
 }
 
 @media (max-width: 767px) {
   .service-background{
     padding: 30px 60px;
+  }
+  .service-container-two{
+    padding:30px 70px;
   }
 }
 /*----------------------------- Service end -----------------------------------*/
