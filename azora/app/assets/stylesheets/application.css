@@ -2851,6 +2851,8 @@ figure.effect-chico:hover p {
 }
 .service-container-two img{
   margin: 0 auto;
+  width: auto;
+  height: auto;
 }
 
 .service-background{
