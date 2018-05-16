@@ -1,14 +1,13 @@
+<!--
 <div class="page-header small-banner banner-news">
   <div class="banner-masking">
     <div class="container">
       <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
       <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
-        <!--
         <ol class="breadcrumb">
           <li><%= link_to "Home", root_path %></li>
           <li class="active">News</li>
         </ol>
-        -->
         <%# <h2>UPDATE THE NEWS</h2>
         <p>
           Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
@@ -17,7 +16,6 @@
       </div>
     </div>
   </div>
-  <!-- 
   <div class="breadcrumb-masking">
     <div class="container">
         <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
@@ -29,7 +27,10 @@
         </div>
       </div>
   </div>
+</div>
   -->
+<div class="small-banner">
+  <%= image_tag "banner-news.jpg", class: "img img-responsive" %>
 </div>
 <!-- 
 <div class="page-header">
@@ -84,7 +85,7 @@
     <% @all_news_arr.each do |news_arr| %>
       <div class="row">
         <% news_arr.each do |news| %>
-          <div class="col-xs-4 news">
+          <div class="col-xs-6 col-md-4 news">
             <div class="col-xs-12 news-short-detail">
               <%= link_to news_detail_path(news.permalink) do %>
                 <%= image_tag news.banner.url(:medium), :class => "img img-responsive" %>

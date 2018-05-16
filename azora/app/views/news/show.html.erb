@@ -1,15 +1,14 @@
+<!--
 <div class="page-header small-banner banner-news">
   <div class="banner-masking">
     <div class="container">
       <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
       <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
-        <!--
         <ol class="breadcrumb">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "News", news_path %></li>
           <li class="active"><%= @news.title %></li>
         </ol>
-        -->
         <h2>UPDATE THE NEWS</h2>
         <p>
           Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
@@ -18,7 +17,6 @@
       </div>
     </div>
   </div>
-  <!--
   <div class="breadcrumb-masking">
     <div class="container">
         <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
@@ -30,7 +28,12 @@
           </ol>
         </div>
       </div>
-  </div>-->
+  </div>
+</div>
+-->
+
+<div class="small-banner">
+  <%= image_tag "banner-news.jpg", class: "img img-responsive" %>
 </div>
 <!--
 <div class="page-header">
@@ -53,7 +56,7 @@
       <div class="col-xs-12 news-detail padding-lr-25">
         <span class="col-xs-12 title"><%= @news.title %></span>
         <span class="col-xs-12 news-info">
-          <span class="col-xs-3 news-info-date">
+          <span class="col-xs-6 col-sm-3 news-info-date">
             <i class="fa fa-calendar"></i><%= @news.updated_at.strftime('%d-%b-%Y') %>
           </span>
           <% unless @news.user.blank? %>

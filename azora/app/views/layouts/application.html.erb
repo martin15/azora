@@ -149,65 +149,10 @@
   <div class="navbar-beacon">
     <ul class="list-unstyled">
       <li class="nav-item"><%= link_to "Home", root_path %></li>
-          <!--<%#*<li class="nav-item dropdown">%>
-            <%#= link_to raw("Products<i class='fa fa-angle-double-down'></i>"), "javascript:void(0)" %>
-            <%#*<ul role="menu" class="dropdown-menu">%>
-              <%# @categories.each do |cat| %>
-                <%# unless cat.child_categories.blank? %>
-                  <%#*<li class="nav-item dropdown">%>
-                    <%#= link_to raw("#{cat.name}<i class='fa fa-angle-double-down'></i>"),
-                                "javascript:void(0)" %>
-                    <%#*<ul role="menu" class="dropdown-menu">%>
-                      <%# cat.child_categories.each do |child_cat| %>
-                        <%# unless child_cat.child_categories.blank? %>
-                          <%#*<li class="nav-item dropdown">%>
-                            <%#= link_to raw("#{child_cat.name}<i class='fa fa-angle-double-down'></i>"),
-                                        "javascript:void(0)" %>
-                            <%#*<ul role="menu" class="dropdown-menu">%>
-                              <%# child_cat.child_categories.each do |gs_child| %>
-                              <%#*<li class="nav-item">%>
-                                <%#= link_to gs_child.name, products_path(gs_child.permalink) %>
-                              <%#*</li>%>
-                              <%# end %>
-                            <%#*</ul>%>
-                          <%#*</li>%>
-                        <%# else %>
-                          <%#*<li class="nav-item">%>
-                            <%#= link_to child_cat.name, products_path(child_cat.permalink) %>
-                          <%#*</li>%>
-                        <%# end %>
-                      <%# end %>
-                    <%#*</ul>%>
-                  <%#*</li>%>
-
-
-                  <%#*<li class="nav-item">%>
-                    <%#= link_to cat.name, products_path(cat.try(:first_child).try(:permalink)) %>
-                  <%#*</li>%>
-                <%# else %>
-                  <%#*<li class="nav-item"><%= link_to cat.name, products_path(cat.permalink) %></li>%>
-                <%# end %>
-              <%# end %>
-            <%#*</ul>%>
-          <%#*</li>%>-->
-          <li class="nav-item"><%= link_to "Certificates", "#" %></li>
-          <li class="nav-item"><%= link_to "News", "#" %></li>
-          <li class="nav-item"><%= link_to "About Us", "#" %></li>
-          <li class="nav-item"><%= link_to "Contact Us", "#" %></li>
-<!--
-      <%#*<li class="nav-item dropdown">%>
-        <%#= link_to raw("Home<i class='fa fa-angle-double-down'></i>"), root_path %>
-        <%#*<ul role="menu" class="dropdown-menu">%>
-          <%#*<li class="nav-item"><%= link_to "Smartwatch" %></li>%>
-          <%#*<li class="nav-item active"><%= link_to "Drone" %></li>%>
-          <%#*<li class="nav-item"><%= link_to "Beacon" %></li>%>
-          <%#*<li class="nav-item"><%= link_to "Vr mask" %></li>%>
-        <%#*</ul>%>
-      <%#*</li>%>
-      <%#*<li class="nav-item"><%= link_to "Products", products_path %></li>%>
-      <%#*<li class="nav-item"><%= link_to "Certificates", products_path %></li>%>
-      <%#*<li class="nav-item"><%= link_to "About Us", products_path %></li>%>
-      <%#*<li class="nav-item"><%= link_to "Contact Us", products_path %></li>%>-->
+      <li class="nav-item"><%= link_to "Our Services", services_path("incentive-tour") %></li>
+      <li class="nav-item"><%= link_to "Galleries", gallery_path(Continent.default.try(:permalink)) %></li>
+      <li class="nav-item"><%= link_to "News", news_path %></li>
+      <li class="nav-item"><%= link_to "About Us", company_profile_path %></li>
     </ul>
   </div>
 

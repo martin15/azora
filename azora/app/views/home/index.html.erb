@@ -203,24 +203,24 @@
         concepts into fun and unforgettable travel experiences.
       </p>
       <div class="col-xs-12 concepts">
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-6 col-sm-6 col-md-3">
           <h5>unique ideas</h5>
           <%= image_tag "icon_idea.png", class: "img img-responsive home-icon" %>
           <div class="text">Unique Ideas or Interesting Travel Concept</div>
         </div>
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-6 col-sm-6 col-md-3">
           <h5>our services</h5>
           <%= image_tag "icon_passport.png", class: "img img-responsive home-icon" %>
           <div class="text">
             Groups Tours, Individual Travel Plans, Incentives Trips, or even Conferences
           </div>
         </div>
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-6 col-sm-6 col-md-3">
           <h5>trained teams</h5>
           <%= image_tag "icon_people.png", class: "img img-responsive home-icon" %>
           <div class="text">Our Trained and Highly-Motivated Teams Are Always on Hand to Assist You</div>
         </div>
-        <div class="col-xs-6 col-sm-3">
+        <div class="col-xs-6 col-sm-6 col-md-3">
           <h5>experiences</h5>
           <%= image_tag "icon_plane.png", class: "img img-responsive home-icon" %>
           <div class="text">Fun and Unforgettable Travel Experiences</div>
@@ -239,7 +239,7 @@
     <h3>Latest Travel News</h3>
     <div class="col-xs-12 no-padding-lr">
       <% @latest_news.each do |news| %>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 travel-post-list">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 travel-post-list">
           <div class="travel-post">
             <div class="travel-post-image">
               <%= image_tag news.banner.url(:medium), :class => "img img-responsive" %>

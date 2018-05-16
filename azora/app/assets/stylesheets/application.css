@@ -244,10 +244,14 @@ section > .page-header, .service-background{
 }
 
 .small-banner {
-  min-height: 430px;
+/*  min-height: 430px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
+}
+
+.small-banner > img{
+  margin: 0 auto;
 }
 
 .banner-galleries{
@@ -1127,7 +1131,9 @@ button, .btn{
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
+  .concepts > div{
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1136,6 +1142,9 @@ button, .btn{
     visibility: visible;
     font-size: 12px;
     height: 35px;
+  }
+  .concepts > div{
+    margin-bottom: 20px;
   }
 }
 
@@ -1797,9 +1806,10 @@ ul.tree li img{
 /*  background-color: #f4f8fa;
   background-image: "../assets/vm_background.jpg"*/
   background: #f4f8fa url(../assets/vm_background.png) right no-repeat;
-  background-size: cover;
+  background-size: contain;
   font-family: "Open sans",sans-serif;
   min-height: 325px;
+  background-position: top left;
 }
 
 .about-us .vision_mision i{
@@ -2839,6 +2849,9 @@ figure.effect-chico:hover p {
   font-size: 15px;
   text-align: center;
 }
+.service-container-two img{
+  margin: 0 auto;
+}
 
 .service-background{
   margin-top: 20px;
@@ -2846,6 +2859,20 @@ figure.effect-chico:hover p {
   background-color: #F2F2F2;
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .service-background{
+    padding: 30px 100px;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-background{
+    padding: 30px 60px;
+  }
+}
 /*----------------------------- Service end -----------------------------------*/
 
 .banner-masking{
@@ -2933,6 +2960,21 @@ a.back-to-top i{
 
 .ticket-list > div{
   padding: 0 25px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .ticket-list{
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ticket-list{
+    padding: 0 30px;
+  }
+  .package-list{
+    margin-top: 50px;
+  }
 }
 
 .package-side-menu:nth-of-type(1){

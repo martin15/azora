@@ -1,9 +1,9 @@
+<!--
 <div class="page-header small-banner banner-our-service">
   <div class="banner-masking">
     <div class="container">
       <div class="col-xs-12 col-sm-6 name no-padding-lr">&nbsp;</div>
       <div class="col-xs-12 col-sm-6 small-banner-text p-l-50">
-        <!--
         <ol class="breadcrumb">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Other Service", services_path("other-service") %></li>
@@ -14,16 +14,20 @@
           Our Highly motivated and experienced staffs will assist you to ensure 
           your tour program complete success!
         </p>
-        -->
       </div>
     </div>
   </div>
+</div>
+-->
+
+<div class="small-banner">
+  <%= image_tag "banner-our-service.jpg", class: "img img-responsive" %>
 </div>
 
 <%= render :partial => "services/shared_menu" %>
 
 <div class="container">
-  <div class="col-sm-3 col-md-3">
+  <div class="col-xs-12 col-sm-4 col-md-3 no-padding-l">
     <div class="panel-group" id="countries-accordion">
       <% @continents.each_with_index do |continent, x| %>
         <% continent == @continent ? (head = '';body = 'in') : (head = 'collapsed';body = '') %>
@@ -38,7 +42,7 @@
           <div id="collapse-<%= continent.permalink %>" class="panel-collapse collapse <%= body %>">
             <div class="panel-body">
               <% continent.countries.each do |country| %>
-                <div class="col-xs-3 country-small">
+                <div class="col-xs-2 col-sm-4 col-md-3 country-small">
                   <%= link_to (image_tag country.banner.url(:thumb), :class => "img img-responsive"),
                                visa_detail_path(country.permalink) %>
                   <%= link_to (country.name.downcase == "united kingdom" ? "UK" : country.name),
@@ -52,7 +56,7 @@
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-9 visa-requirement">
+  <div class="col-xs-12 col-sm-8 col-md-9 visa-requirement">
     <div class="col-xs-12 visa-header">
       <%= image_tag @country.banner.url, :class => "img img-responsive" %>
       <span><%= @country.name %></span>
