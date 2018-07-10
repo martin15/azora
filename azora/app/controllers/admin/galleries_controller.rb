@@ -1,5 +1,5 @@
 class Admin::GalleriesController < Admin::ApplicationController
-  before_filter :find_country, :only => [:create, :update]
+  #before_filter :find_country, :only => [:create, :update]
   before_filter :find_gallery, :only => [:edit, :update, :destroy, :delete]
 
   def index
