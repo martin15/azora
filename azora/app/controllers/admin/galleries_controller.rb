@@ -14,7 +14,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def create
-    params[:gallery][:continent_id] = @country.continent_id
+    #params[:gallery][:continent_id] = @country.continent_id
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
       flash[:notice] = 'Gallery was successfully create.'
@@ -33,7 +33,7 @@ class Admin::GalleriesController < Admin::ApplicationController
   end
 
   def update
-    params[:gallery][:continent_id] = @country.continent_id
+    #params[:gallery][:continent_id] = @country.continent_id
     if @gallery.update_attributes(gallery_params)
       flash[:notice] = 'Gallery was successfully updated.'
       redirect_to admin_galleries_path
