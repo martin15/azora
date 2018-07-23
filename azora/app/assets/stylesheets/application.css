@@ -2119,7 +2119,8 @@ ul.tree li img{
   float: left;
   overflow: hidden;
   width: 48%;
-  background: #3085a3;
+/*  background: #3085a3;*/
+  background: transparent;
   text-align: center;
   cursor: pointer;
 }
@@ -2190,8 +2191,8 @@ ul.tree li img{
 figure.effect-chico img {
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
-  -webkit-transform: scale(1.12);
-  transform: scale(1.12);
+/*  -webkit-transform: scale(1.12);
+  transform: scale(1.12);*/
 }
 
 figure.effect-chico:hover img {
