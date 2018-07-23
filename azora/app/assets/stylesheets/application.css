@@ -2119,8 +2119,7 @@ ul.tree li img{
   float: left;
   overflow: hidden;
   width: 48%;
-/*  background: #3085a3;*/
-  background: transparent;
+  background: #999;
   text-align: center;
   cursor: pointer;
 }
