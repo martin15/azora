@@ -3,8 +3,8 @@ class Admin::CountriesController < Admin::ApplicationController
   before_filter :get_continent_list, :only => [:new, :create, :edit, :update]
 
   def index
-    @countries = Country.all.page(params[:page]).per(10)
-    @no = paging(10)
+    @countries = Country.order("#{sort_column} #{sort_direction}").page(params[:page]).per(20)
+    @no = paging(20)
   end
 
   def show
@@ -62,5 +62,13 @@ class Admin::CountriesController < Admin::ApplicationController
 
     def get_continent_list
       @continents = Continent.continent_list
+    end
+
+    def sort_column
+      params[:sort] || "name"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
     end
 end

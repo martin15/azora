@@ -21,7 +21,7 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Banner</th>
+        <%#*<th>Banner</th>%>
         <th class="green-link"><%= sortable("name", "Name") %></th>
         <th>Countries</th>
         <th>Sequence</th>
@@ -32,7 +32,9 @@
       <% @continents.each_with_index do |continent, x| %>
         <tr>
           <th><%= @no+x+1 %></th>
-          <td><%= image_tag continent.banner.url(:thumb), :class => "img img responsive" %></td>
+          <%#*<td>%>
+            <%#= image_tag continent.banner.url(:thumb), :class => "img img responsive" %>
+          <%#*</td>%>
           <td><%= continent.name %></td>
           <td>
             <% continent.countries.each do |country| %>
@@ -45,7 +47,7 @@
             <%= link_to "Detail", admin_continent_path(continent.permalink), :class => "btn btn-primary" %>
             <%= link_to "Edit", edit_admin_continent_path(continent.permalink), :class => "btn btn-success" %>
             <%= link_to "Delete", admin_continent_path(continent.permalink ), :method => :delete,
-                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-warning" %>
+                                  :data => {:confirm => "Are you sure?"}, :class => "btn btn-danger" %>
           </td>
         </tr>
       <% end %>
