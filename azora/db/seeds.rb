@@ -9,6 +9,12 @@
 user = User.find_or_create_by(:email => "martin.me15@yahoo.com", :name => "Martin",
                               :password_digest => BCrypt::Password.create('1q2w3e4r5t').to_s)
 
+patricia = User.find_or_create_by(:email => "patricia@azoratravel.com", :name => "Patricia",
+                              :password_digest => BCrypt::Password.create('p@55word5').to_s)
+
+admin = User.find_or_create_by(:email => "admin@azoratravel.com", :name => "Admin",
+                              :password_digest => BCrypt::Password.create('4dministrat0r').to_s)
+
 africa = Continent.find_or_create_by(:name => "Africa")
 puts africa.inspect
 south_africa = Country.find_or_create_by(:name => "South Africa", :continent_id => africa.id)
