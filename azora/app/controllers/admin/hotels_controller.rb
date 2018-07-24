@@ -48,7 +48,7 @@ class Admin::HotelsController < Admin::ApplicationController
     end
 
     def find_hotel
-      @hotel = Hotel.find_by_permalink(params[:id])
+      @hotel = Hotel.find_by_id(params[:id])
       if @hotel.nil?
         flash[:notice] = "Cannot find the Hotel"
         redirect_to admin_hotels_path
