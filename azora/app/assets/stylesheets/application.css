@@ -2794,6 +2794,10 @@ figure.effect-chico:hover p {
   padding-right: 0px;
 }
 
+.instagram img, .whatsapp img{
+  size: 32px;
+}
+
 .instagram a{
   color: #2b85c3;
   text-decoration: underline;
