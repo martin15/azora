@@ -7,8 +7,10 @@ class AboutUsController < ApplicationController
 
   def contact_us
     @contact = Contact.new(contact_params)
-    if @contact.save
-      #ContactUsMailer.notification_admin(@contact, the_domain).deliver_now
+    if verify_recaptcha(model: @contact) && @contact.save
+      ContactUsMailer.notification_user(@contact, the_domain).deliver_now
+#      ContactUsMailer.notification_officer(@contact, the_domain).deliver_now
+      ContactUsMailer.notification_admin(@contact, the_domain).deliver_now
       flash[:notice] = 'Message was successfully sent.'
       redirect_to :action => 'company_profile', :anchor => 'contact-us'
     else
