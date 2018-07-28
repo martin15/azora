@@ -14,6 +14,11 @@ class ApplicationController < ActionController::Base
     return start_number
   end
 
+  def the_domain
+    host = request.host == "localhost" ? "#{request.host}:#{request.port}" : request.host
+    return host
+  end
+
   def continent_list
     @continent_list = Continent.all.order("name")
   end

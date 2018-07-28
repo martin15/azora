@@ -18,6 +18,7 @@
     <script src="/assets/respond.min.js"></script>
   <![endif]-->
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
 </head>
 <body id="home" class="admin">
   <nav class="navbar navbar-default navbar-fixed <%= manage_menu %>">

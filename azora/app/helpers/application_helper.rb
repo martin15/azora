@@ -37,8 +37,6 @@ module ApplicationHelper
   end
 
   def manage_menu
-    puts "---------"
-    puts current_user.inspect
     current_user.nil? ? "normal" : "with-user-bar"
     #!nil ? "normal" : "with-user-bar"
   end
