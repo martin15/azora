@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :continent_list
   protect_from_forgery with: :exception
-  BRAND_NAME = 'Azora Travel'.freeze
+  BRAND_NAME = 'AZORA TRAVEL'.freeze
 
   def meta_title(title = "")
     [title, BRAND_NAME].reject(&:empty?).join(' | ')

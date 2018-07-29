@@ -8,7 +8,7 @@ class GalleriesController < ApplicationController
   def show
     #@continents = Continent.all.order("name").each_slice(6).to_a
     @continents = Continent.all.order("name")
-    @galleries_paginate = @continent.galleries.order("updated_at DESC").page(params[:page]).per(20)
+    @galleries_paginate = @continent.galleries.order("updated_at DESC")
     @galleries = @galleries_paginate.each_slice(3).to_a
     respond_to do |format|
       format.html
