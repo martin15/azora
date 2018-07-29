@@ -3040,6 +3040,10 @@ a.back-to-top i{
   padding: 25px;
 }
 
+.package-box .package img{
+  margin: 0 auto;
+}
+
 .package-box .package .title{
   font-size: 23px;
   color: #00bcdf;
