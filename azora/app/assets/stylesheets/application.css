@@ -3035,6 +3035,10 @@ a.back-to-top i{
   z-index: 10;
 }
 
+.package-box{
+  padding: 0 45px;
+}
+
 .package-box .package{
   background-color: #eee;
   padding: 25px;
