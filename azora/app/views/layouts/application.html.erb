@@ -92,8 +92,8 @@
             <li><%= link_to "Gallery", gallery_path(Continent.default.try(:permalink)) %></li>
             <li><%= link_to "News", news_path %></li>
             <li><%= link_to "About Us", company_profile_path %></li>
-            <li><%= link_to "Career", career_path %></li>
-            <li><%= link_to "Contact Us", contact_us_path %></li>
+            <!--<li><%= link_to "Career", career_path %></li>-->
+            <li><%= link_to "Contact Us", company_profile_path(anchor: 'contact-us') %></li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-4 footer-address">
