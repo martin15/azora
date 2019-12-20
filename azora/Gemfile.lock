@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.4)
+    bcrypt (3.1.13)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
@@ -47,6 +48,8 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    carrierwave-video-thumbnailer (0.1.4)
+      carrierwave
     ckeditor (4.2.0)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -101,7 +104,7 @@ GEM
     orm_adapter (0.5.0)
     permalink_fu (1.0.0)
     pkg-config (1.1.7)
-    rack (1.6.8)
+    rack (1.6.12)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.7)
@@ -129,6 +132,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
+    rb-readline (0.5.5)
     rdoc (4.3.0)
     recaptcha (3.3.0)
       json
@@ -168,8 +172,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  bcrypt (~> 3.1.7)
+  byebug (= 9.0.6)
   carrierwave
+  carrierwave-video-thumbnailer
   ckeditor
   coffee-rails (~> 4.1.0)
   exception_notification
@@ -180,7 +186,8 @@ DEPENDENCIES
   mysql2 (>= 0.3.13, < 0.5)
   permalink_fu
   rails (= 4.2.7)
-  recaptcha
+  rb-readline
+  recaptcha (= 3.3.0)
   rmagick
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
