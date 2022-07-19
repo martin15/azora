@@ -94,8 +94,9 @@ Rails.application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => "azoratravel.com",
-    :user_name            => "azora.travel.mailer@gmail.com",
-    :password             => "Azora1q2w3e",
-    :authentication       => :plain
+    :user_name            => "rails.global.mailer@gmail.com",
+    :password             => "tthvwybrwludjwna",
+    :authentication       => :plain,
+    :enable_starttls_auto => true
   }
 end
