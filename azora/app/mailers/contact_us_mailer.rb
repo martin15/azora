@@ -8,7 +8,7 @@ class ContactUsMailer < ApplicationMailer
   def notification_officer(contact, domain)
     @contact = contact
     @domain = domain
-    mail(:to => "info@azoratravel.com", :subject => "[Officer] #{contact.subject}")
+    mail(:to => "Info.azoratravel@gmail.com", :subject => "[Officer] #{contact.subject}")
   end
 
   def notification_admin(contact, domain)
