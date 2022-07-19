@@ -96,7 +96,6 @@ Rails.application.configure do
     :domain               => "azoratravel.com",
     :user_name            => "azora.travel.mailer@gmail.com",
     :password             => "Azora1q2w3e",
-    :authentication       => :plain,
-    :enable_starttls_auto => true
+    :authentication       => :plain
   }
 end
