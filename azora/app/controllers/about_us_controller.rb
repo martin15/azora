@@ -7,14 +7,19 @@ class AboutUsController < ApplicationController
 
   def contact_us
     @contact = Contact.new(contact_params)
-    if verify_recaptcha(model: @contact) && @contact.save
+    if simple_captcha_valid? && @contact.save
       ContactUsMailer.notification_user(@contact, the_domain).deliver_now
       ContactUsMailer.notification_officer(@contact, the_domain).deliver_now
       ContactUsMailer.notification_admin(@contact, the_domain).deliver_now
+
       flash[:notice] = 'Message was successfully sent.'
       redirect_to :action => 'company_profile', :anchor => 'contact-us'
     else
-      flash[:error] = "Message failed to send"
+      if simple_captcha_valid?
+        flash[:error] = "Message failed to send"
+      else
+        flash[:error] = "Captcha is Invalid, Message failed to send"
+      end
       @anchor = "contact-us"
       render :action => "company_profile"
     end

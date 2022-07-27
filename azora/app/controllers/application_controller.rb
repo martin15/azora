@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :continent_list
   protect_from_forgery with: :exception
   BRAND_NAME = 'AZORA TRAVEL'.freeze
+  include SimpleCaptcha::ControllerHelpers
 
   def meta_title(title = "")
     [title, BRAND_NAME].reject(&:empty?).join(' | ')
