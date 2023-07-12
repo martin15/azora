@@ -124,54 +124,7 @@
 
 <div class="container" id="contact-us">
   <%= render :partial => "shared/flash" %>
-  <div class="col-xs-12 col-sm-6 contact-us aos-item" data-aos="fade-up-right">
-    <%= form_for @contact, :url => contact_us_path do |f| %>
-      <% if @contact.errors.any? %>
-        <div class="error_explanation">
-          <h2><%= pluralize(@contact.errors.count, "error") %> prevented this record from being saved:</h2>
-          <ul>
-            <% @contact.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="col-xs-12 col-sm-6 form-group">
-        <%= f.label :name, "Name *" %>
-        <%= f.text_field :name, :class => "form-control" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 form-group">
-        <%= f.label :email, "Email *" %>
-        <%= f.email_field :email, :class => "form-control" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 form-group">
-        <%= f.label :phone, "Phone Number" %>
-        <%= f.text_field :phone, :class => "form-control" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 form-group">
-        <%= f.label :company_name, "Company Name" %>
-        <%= f.text_field :company_name, :class => "form-control" %>
-      </div>
-      <div class="col-xs-12 form-group">
-        <%= f.label :subject, "Subject *" %>
-        <%= f.text_field :subject, :class => "form-control" %>
-      </div>
-      <div class="col-xs-12 form-group">
-        <%= f.label :content, "Message *" %>
-        <%= f.text_area :content, :class => "form-control", :rows => 10 %>
-      </div>
-      <div class="col-xs-12 form-group">
-        <%= show_simple_captcha %>
-      </div>
-      <div class="col-xs-12 form-group">
-        <%= f.submit "Send Message", :class => "btn btn-info", :style=>"background-color:#51bf9f" %>
-      </div>
-      <div class="col-xs-12 form-group m-t-30">
-        <b>* Marked fields are mandatory</b>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-xs-12 col-sm-6 no-padding-lr aos-item" data-aos="fade-up-left">
+  <div class="col-xs-12 col-sm-12 no-padding-lr aos-item" data-aos="fade-up-left">
     <div class="col-xs-12 location">
       <h3>The <b>Office</b></h3>
       <span class="col-xs-12 address">
@@ -218,12 +171,12 @@
       <span class="col-xs-12">
         <span class="col-xs-1"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
         <span class="col-xs-3 no-padding-lr">Monday - Friday</span>
-        <span class="col-xs-5">08.30 - 17.00</span>
+        <span class="col-xs-5">09.00 - 16.00</span>
       </span>
       <span class="col-xs-12">
         <span class="col-xs-1"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-        <span class="col-xs-3 no-padding-lr">Saturday</span>
-        <span class="col-xs-5">08.30 - 13.00</span>
+        <span class="col-xs-3 no-padding-lr">Saturday - Sunday</span>
+        <span class="col-xs-5">Closed</span>
       </span>
     </div>
   </div>
